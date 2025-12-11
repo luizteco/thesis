@@ -9,17 +9,17 @@ export function CupStabiliser() {
     {
       label: "Width (mm)",
       inputId: "width",
-      value: 100,
+      value: 10,
     },
     {
       label: "Height (mm)",
       inputId: "height",
-      value: 50,
+      value: 10,
     },
     {
       label: "Depth (mm)",
       inputId: "depth",
-      value: 100,
+      value: 30,
     },
   ];
 
@@ -35,7 +35,11 @@ export function CupStabiliser() {
         objectName="Cup Stabiliser"
         fields={CustomiseObjectFormFields}
         onSubmit={(values) => {
-          downloadObject("cup-stabiliser", values);
+          downloadObject("cup-stabiliser", {
+            width: values["width"],
+            height: values["height"],
+            depth: values["depth"],
+          });
         }}
       />
     </div>

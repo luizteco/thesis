@@ -3,3 +3,5 @@ export type Dimensions = {
   height: number;
   depth: number;
 };
+
+export type ObjectName = string;

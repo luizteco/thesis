@@ -1,1 +1,21 @@
-//TODO implemnet zip functionality
+import JSZip from "jszip";
+
+export async function packageZip(urls: string[]): Promise<Blob> {
+  const zip = new JSZip();
+
+  for (const url of urls) {
+    const filename = url.split("/").slice(-1)[0];
+    const response = await fetch(url);
+
+    if (response.status === 404) {
+      alert(`File not found: ${filename} (URL: ${url})`);
+      throw new Error(`404 - File not found: ${url}`);
+    }
+
+    const data = await response.blob();
+    zip.file(filename, data);
+  }
+
+  const blob = await zip.generateAsync({ type: "blob" });
+  return blob;
+}
