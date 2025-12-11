@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   CustomiseObjectForm,
   type CustomiseObjectFormField,
@@ -5,23 +6,39 @@ import {
 import { downloadObject } from "../../components/download/download";
 
 export function CupStabiliser() {
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [dimensions, setDimensions] = useState({
+    width: 10,
+    height: 10,
+    depth: 30,
+  });
+
   const CustomiseObjectFormFields: CustomiseObjectFormField[] = [
     {
       label: "Width (mm)",
       inputId: "width",
-      value: 10,
+      value: dimensions.width,
     },
     {
       label: "Height (mm)",
       inputId: "height",
-      value: 10,
+      value: dimensions.height,
     },
     {
       label: "Depth (mm)",
       inputId: "depth",
-      value: 30,
+      value: dimensions.depth,
     },
   ];
+
+  const handleDownload = async () => {
+    setIsDownloading(true);
+    try {
+      await downloadObject("cup-stabiliser", dimensions);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   return (
     <div className="m-8">
@@ -32,16 +49,22 @@ export function CupStabiliser() {
         </p>
       </div>
       <CustomiseObjectForm
-        objectName="Cup Stabiliser"
         fields={CustomiseObjectFormFields}
-        onSubmit={(values) => {
-          downloadObject("cup-stabiliser", {
-            width: values["width"],
-            height: values["height"],
-            depth: values["depth"],
-          });
-        }}
+        onChange={(values) =>
+          setDimensions({
+            width: values.width,
+            height: values.height,
+            depth: values.depth,
+          })
+        }
       />
+      <button
+        onClick={handleDownload}
+        disabled={isDownloading}
+        className="mt-4 text-purple-300 underline cursor-pointer disabled:opacity-50"
+      >
+        {isDownloading ? "Downloading..." : "Download Cup Stabiliser"}
+      </button>
     </div>
   );
 }

@@ -1,5 +1,4 @@
-import type { FormEvent } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NumberInput } from "./number-input";
 
 export type CustomiseObjectFormField = {
@@ -10,14 +9,12 @@ export type CustomiseObjectFormField = {
 
 export type CustomiseObjectFormProps = {
   fields: CustomiseObjectFormField[];
-  objectName: string;
-  onSubmit: (values: Record<string, number>) => void;
+  onChange: (values: Record<string, number>) => void;
 };
 
 export function CustomiseObjectForm({
   fields,
-  objectName,
-  onSubmit,
+  onChange,
 }: CustomiseObjectFormProps) {
   const [values, setValues] = useState<Record<string, number>>(() => {
     const initialValues: Record<string, number> = {};
@@ -27,6 +24,10 @@ export function CustomiseObjectForm({
     return initialValues;
   });
 
+  useEffect(() => {
+    onChange(values);
+  }, [values, onChange]);
+
   const handleChange = (inputId: string, value: number) => {
     setValues((prev) => ({
       ...prev,
@@ -34,29 +35,17 @@ export function CustomiseObjectForm({
     }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    onSubmit(values);
-  };
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="space-y-4">
       {fields.map((field) => (
-        <div className="flex w-52 justify-between">
+        <div key={field.inputId} className="flex w-52 justify-between">
           <label className="text-gray-300">{field.label}</label>
           <NumberInput
-            key={field.inputId}
             value={values[field.inputId]}
             onChange={(value) => handleChange(field.inputId, value)}
           />
         </div>
       ))}
-      <button
-        type="submit"
-        className=" px-1 bg-purple-300 text-black cursor-pointer"
-      >
-        Download {objectName}
-      </button>
-    </form>
+    </div>
   );
 }
