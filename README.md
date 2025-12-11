@@ -21,4 +21,5 @@ Web app that offers users 3D files. Users can input different measurments, which
 - if we decide to secure the files, cloudflare offers signed urls, signed urls would have to be generated inside a server comp
 
 ### references
-- https://chatgpt.com/share/693b1bc7-db84-8011-9378-402b30fcb954
+- research: https://chatgpt.com/share/693b1bc7-db84-8011-9378-402b30fcb954
+- cloudflare 10gb free tier: https://www.cloudflare.com/de-de/developer-platform/products/r2/
