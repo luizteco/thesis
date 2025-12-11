@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import {
   CustomiseObjectForm,
   type CustomiseObjectFormField,
@@ -12,6 +12,17 @@ export function CupStabiliser() {
     height: 10,
     depth: 30,
   });
+
+  const handleDimensionsChange = useCallback(
+    (values: Record<string, number>) => {
+      setDimensions({
+        width: values.width,
+        height: values.height,
+        depth: values.depth,
+      });
+    },
+    []
+  );
 
   const CustomiseObjectFormFields: CustomiseObjectFormField[] = [
     {
@@ -50,13 +61,7 @@ export function CupStabiliser() {
       </div>
       <CustomiseObjectForm
         fields={CustomiseObjectFormFields}
-        onChange={(values) =>
-          setDimensions({
-            width: values.width,
-            height: values.height,
-            depth: values.depth,
-          })
-        }
+        onChange={handleDimensionsChange}
       />
       <button
         onClick={handleDownload}

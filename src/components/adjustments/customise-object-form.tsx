@@ -26,7 +26,8 @@ export function CustomiseObjectForm({
 
   useEffect(() => {
     onChange(values);
-  }, [values, onChange]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [values]);
 
   const handleChange = (inputId: string, value: number) => {
     setValues((prev) => ({
