@@ -5,7 +5,7 @@ import { packageZip } from "./zip";
 function getMainPath(objectName: ObjectName, dimensions: Dimensions) {
   return (
     PREFIX_URL +
-    `/${objectName}` +
+    `/${objectName}/` +
     FILE_PATTERN.replace("{w}", dimensions.width.toString())
       .replace("{h}", dimensions.height.toString())
       .replace("{d}", dimensions.depth.toString())
