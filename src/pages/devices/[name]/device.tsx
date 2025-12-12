@@ -2,11 +2,11 @@ import { useCallback, useState } from "react";
 import {
   CustomiseObjectForm,
   type CustomiseObjectFormField,
-} from "../../components/adjustments/customise-object-form";
-import { downloadObject } from "../../components/download/download";
-import { Preview } from "../../components/object/preview";
+} from "../../../components/customise/customise-object-form";
+import { downloadObject } from "../../../components/download/download";
+import { Preview } from "../../../components/object/preview";
 
-export function CupStabiliser() {
+export function Device() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [dimensions, setDimensions] = useState({
     width: 10,
@@ -53,7 +53,7 @@ export function CupStabiliser() {
   };
 
   return (
-    <div className="m-8 flex items-center">
+    <div className="m-8 flex items-start">
       <div>
         <div className="mb-4">
           <h1 className="font-bold">Cup Stabiliser</h1>

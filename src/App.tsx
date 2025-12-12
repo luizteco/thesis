@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { Products } from "./pages/products";
-import { CupStabiliser } from "./pages/products/cup-stabiliser";
+import { Devices } from "./pages/devices";
+import { Device } from "./pages/devices/[name]/device";
 import { Welcome } from "./pages/welcome";
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/product/cup-stabiliser" element={<CupStabiliser />} />
+        <Route path="/devices" element={<Devices />} />
+        <Route path="/device/cup-stabiliser" element={<Device />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function Products() {
+export function Devices() {
   return (
     <div className="m-8">
       <h1 className="font-bold">Products</h1>
