@@ -4,6 +4,7 @@ import {
   type CustomiseObjectFormField,
 } from "../../components/adjustments/customise-object-form";
 import { downloadObject } from "../../components/download/download";
+import { Preview } from "../../components/object/preview";
 
 export function CupStabiliser() {
   const [isDownloading, setIsDownloading] = useState(false);
@@ -52,24 +53,29 @@ export function CupStabiliser() {
   };
 
   return (
-    <div className="m-8">
-      <div className="mb-4">
-        <h1 className="font-bold">Cup Stabiliser</h1>
-        <p className="text-gray-300">
-          This is the cup stabiliser product detail page.
-        </p>
+    <div className="m-8 flex items-center">
+      <div>
+        <div className="mb-4">
+          <h1 className="font-bold">Cup Stabiliser</h1>
+          <p className="text-gray-300">
+            This is the cup stabiliser product detail page.
+          </p>
+        </div>
+        <CustomiseObjectForm
+          fields={CustomiseObjectFormFields}
+          onChange={handleDimensionsChange}
+        />
+        <button
+          onClick={handleDownload}
+          disabled={isDownloading}
+          className="mt-4 text-purple-300 underline cursor-pointer disabled:opacity-50"
+        >
+          {isDownloading ? "Downloading..." : "Download Cup Stabiliser"}
+        </button>
       </div>
-      <CustomiseObjectForm
-        fields={CustomiseObjectFormFields}
-        onChange={handleDimensionsChange}
-      />
-      <button
-        onClick={handleDownload}
-        disabled={isDownloading}
-        className="mt-4 text-purple-300 underline cursor-pointer disabled:opacity-50"
-      >
-        {isDownloading ? "Downloading..." : "Download Cup Stabiliser"}
-      </button>
+      <div>
+        <Preview stlPath="/demo.stl" />
+      </div>
     </div>
   );
 }
