@@ -37,10 +37,12 @@ export function CustomiseObjectForm({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {fields.map((field) => (
-        <div key={field.inputId} className="flex w-52 justify-between">
-          <label className="text-gray-700">{field.label}</label>
+        <div key={field.inputId} className="space-y-2">
+          <label className="block text-sm font-semibold text-gray-700">
+            {field.label}
+          </label>
           <NumberInput
             value={values[field.inputId]}
             onChange={(value) => handleChange(field.inputId, value)}

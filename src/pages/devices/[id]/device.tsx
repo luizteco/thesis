@@ -68,31 +68,55 @@ export function Device() {
 
   if (!device) {
     return (
-      <div className="m-8">Loading device, or it could not be found...</div>
+      <div className="min-h-screen bg-linear-to-br from-gray-50 to-purple-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
+          <p className="mt-4 text-gray-700">
+            Loading device, or it could not be found...
+          </p>
+        </div>
+      </div>
     );
   }
 
   return (
-    <div className="m-8 flex items-start">
-      <div>
-        <div className="mb-4">
-          <h1 className="font-bold">{device.name}</h1>
-          <p className="text-gray-700">{device.description}</p>
+    <div className="min-h-screen bg-linear-to-br from-gray-50 to-purple-50">
+      <div className="max-w-7xl mx-auto px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <h1 className="text-4xl font-bold text-black mb-3">
+                {device.name}
+              </h1>
+              <p className="text-lg text-gray-700">{device.description}</p>
+
+              <h2 className="text-xl font-bold text-black mb-6">
+                Customize Dimensions
+              </h2>
+              <CustomiseObjectForm
+                fields={CustomiseObjectFormFields}
+                onChange={handleDimensionsChange}
+              />
+              <button
+                onClick={handleDownload}
+                disabled={isDownloading}
+                className="mt-8 w-full px-6 py-4 bg-purple-500 text-white font-semibold rounded-xl hover:bg-purple-700 shadow-md hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isDownloading ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    Downloading...
+                  </span>
+                ) : (
+                  `Download ${device.name}`
+                )}
+              </button>
+            </div>
+          </div>
+          <div className="h-full">
+            <Preview stlPath={device.previewStlPath} />
+          </div>
         </div>
-        <CustomiseObjectForm
-          fields={CustomiseObjectFormFields}
-          onChange={handleDimensionsChange}
-        />
-        <button
-          onClick={handleDownload}
-          disabled={isDownloading}
-          className="mt-4 text-purple-500 underline cursor-pointer disabled:opacity-50"
-        >
-          {isDownloading ? "Downloading..." : `Download ${device.name}`}
-        </button>
-      </div>
-      <div>
-        <Preview stlPath={device.previewStlPath} />
       </div>
     </div>
   );

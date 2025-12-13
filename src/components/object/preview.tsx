@@ -27,11 +27,13 @@ export function Preview({
   animate = true,
 }: PreviewProps) {
   return (
-    <Canvas>
-      <Stage environment="city" intensity={0.5}>
-        <STLModel url={stlPath} />
-      </Stage>
-      {isInteractive && <OrbitControls autoRotate={animate} />}
-    </Canvas>
+    <div className="h-full">
+      <Canvas>
+        <Stage environment="city" intensity={0.5}>
+          <STLModel url={stlPath} />
+        </Stage>
+        {isInteractive && <OrbitControls autoRotate={animate} />}
+      </Canvas>
+    </div>
   );
 }
