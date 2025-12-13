@@ -10,7 +10,7 @@ export function NumberInput({ value, onChange }: NumberInputProps) {
         type="number"
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-20 px-2 border border-gray-300"
+        className="w-20 px-2 border border-gray-700"
       />
     </div>
   );

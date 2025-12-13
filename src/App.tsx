@@ -1,3 +1,6 @@
+import { Devices } from "@pages/devices";
+import { Device } from "@pages/devices/[id]/device";
+import { Welcome } from "@pages/welcome";
 import {
   BrowserRouter,
   Link,
@@ -6,9 +9,6 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import { Devices } from "./pages/devices";
-import { Device } from "./pages/devices/[id]/device";
-import { Welcome } from "./pages/welcome";
 
 function Navigation() {
   const location = useLocation();
@@ -16,7 +16,7 @@ function Navigation() {
   const isHome = location.pathname === "/";
 
   return (
-    <nav className="flex m-8 gap-8 text-purple-300 text-xs">
+    <nav className="flex m-8 gap-8 text-purple-500 text-xs">
       {!isHome && (
         <button className="hover:underline" onClick={() => navigate(-1)}>
           ←

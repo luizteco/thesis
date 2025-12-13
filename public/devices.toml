@@ -2,22 +2,26 @@
 name = "Adaptive Handle"
 id = "adaptive-handle"
 previewStlPath = "/preview-models/demo.stl"
+previewImagePath = "/preview-images/adaptive-handle.png"
 description = "An adaptive handle designed to provide a comfortable and secure grip for various tools and devices."
 
 [[device]]
 name = "Adaptive Fork"
 id = "adaptive-fork"
 previewStlPath = "/preview-models/demo.stl"
+previewImagePath = "/preview-images/adaptive-handle.png"
 description = "An adaptive fork designed to provide a comfortable and secure grip for various tools and devices."
 
 [[device]]
 name = "Adaptive Spoon"
 id = "adaptive-spoon"
 previewStlPath = "/preview-models/demo.stl"
+previewImagePath = "/preview-images/adaptive-handle.png"
 description = "An adaptive spoon designed to provide a comfortable and secure grip for various tools and devices."
 
 [[device]]
 name = "Stabilised Pen"
 id = "stabilised-pen"
 previewStlPath = "/preview-models/demo.stl"
+previewImagePath = "/preview-images/adaptive-handle.png"
 description = "A stabilised pen designed to provide a comfortable and secure grip for various writing instruments."

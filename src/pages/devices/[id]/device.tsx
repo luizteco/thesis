@@ -1,17 +1,18 @@
-import { useCallback, useState } from "react";
-import { useParams } from "react-router-dom";
 import {
   CustomiseObjectForm,
   type CustomiseObjectFormField,
-} from "../../../components/customise/customise-object-form";
-import { downloadObject } from "../../../components/download/download";
-import { Preview } from "../../../components/object/preview";
+} from "@components/customise/customise-object-form";
+import { downloadObject } from "@components/download/download";
+import { Preview } from "@components/object/preview";
+import { useCallback, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useGetDeviceById } from "./use-get-device";
 
 export type DeviceConfig = {
   name: string;
   id: string;
   previewStlPath: string;
+  previewImagePath: string;
   description: string;
 };
 
@@ -76,7 +77,7 @@ export function Device() {
       <div>
         <div className="mb-4">
           <h1 className="font-bold">{device.name}</h1>
-          <p className="text-gray-300">{device.description}</p>
+          <p className="text-gray-700">{device.description}</p>
         </div>
         <CustomiseObjectForm
           fields={CustomiseObjectFormFields}
@@ -85,7 +86,7 @@ export function Device() {
         <button
           onClick={handleDownload}
           disabled={isDownloading}
-          className="mt-4 text-purple-300 underline cursor-pointer disabled:opacity-50"
+          className="mt-4 text-purple-500 underline cursor-pointer disabled:opacity-50"
         >
           {isDownloading ? "Downloading..." : `Download ${device.name}`}
         </button>

@@ -40,7 +40,7 @@ export function CustomiseObjectForm({
     <div className="space-y-4">
       {fields.map((field) => (
         <div key={field.inputId} className="flex w-52 justify-between">
-          <label className="text-gray-300">{field.label}</label>
+          <label className="text-gray-700">{field.label}</label>
           <NumberInput
             value={values[field.inputId]}
             onChange={(value) => handleChange(field.inputId, value)}
