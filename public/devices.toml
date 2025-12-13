@@ -1,0 +1,5 @@
+[[device]]
+name = "Cup Stabiliser"
+id = "cup-stabiliser"
+previewStlPath = "/preview-models/demo.stl"
+description = "A customizable cup stabiliser designed to keep your cups secure and stable."

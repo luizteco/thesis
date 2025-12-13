@@ -7,7 +7,7 @@ export function Devices() {
       <p className="text-gray-300">This is the products page.</p>
       <nav className="mt-4">
         <Link
-          to="/product/cup-stabiliser"
+          to="/device/cup-stabiliser"
           className="text-purple-300 hover:underline"
         >
           Cup stabiliser

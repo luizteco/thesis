@@ -6,8 +6,8 @@ export function Welcome() {
       <h1 className="font-bold">Home</h1>
       <p className="text-gray-300">This is the home page.</p>
       <nav className="mt-4">
-        <Link to="/products" className="text-purple-300 hover:underline">
-          Products
+        <Link to="/devices" className="text-purple-300 hover:underline">
+          Devices
         </Link>
       </nav>
     </div>
