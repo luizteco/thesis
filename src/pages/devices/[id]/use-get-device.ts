@@ -23,3 +23,19 @@ export function useGetDeviceById(id: string) {
   }, [id]);
   return device;
 }
+
+export function useGetAllDevices() {
+  const [devices, setDevices] = useState<DeviceConfig[]>([]);
+
+  useEffect(() => {
+    fetch("/devices.toml")
+      .then((res) => res.text())
+      .then((text) => {
+        setDevices(toml.parse(text).device);
+      })
+      .catch((error) => {
+        console.error("Error loading devices:", error);
+      });
+  }, []);
+  return devices;
+}

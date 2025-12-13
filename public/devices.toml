@@ -1,5 +1,23 @@
 [[device]]
-name = "Cup Stabiliser"
-id = "cup-stabiliser"
+name = "Adaptive Handle"
+id = "adaptive-handle"
 previewStlPath = "/preview-models/demo.stl"
-description = "A customizable cup stabiliser designed to keep your cups secure and stable."
+description = "An adaptive handle designed to provide a comfortable and secure grip for various tools and devices."
+
+[[device]]
+name = "Adaptive Fork"
+id = "adaptive-fork"
+previewStlPath = "/preview-models/demo.stl"
+description = "An adaptive fork designed to provide a comfortable and secure grip for various tools and devices."
+
+[[device]]
+name = "Adaptive Spoon"
+id = "adaptive-spoon"
+previewStlPath = "/preview-models/demo.stl"
+description = "An adaptive spoon designed to provide a comfortable and secure grip for various tools and devices."
+
+[[device]]
+name = "Stabilised Pen"
+id = "stabilised-pen"
+previewStlPath = "/preview-models/demo.stl"
+description = "A stabilised pen designed to provide a comfortable and secure grip for various writing instruments."
