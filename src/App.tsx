@@ -20,7 +20,7 @@ function Navigation() {
       <div className="max-w-7xl mx-auto px-8 py-4 flex items-center gap-6">
         {!isHome && (
           <button
-            className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-purple-50 text-purple-500 font-medium transition-colors"
+            className="flex items-center justify-center w-8 rounded-full hover:bg-purple-50 text-purple-500 font-medium transition-colors"
             onClick={() => navigate(-1)}
           >
             ←

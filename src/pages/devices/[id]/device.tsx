@@ -68,7 +68,7 @@ export function Device() {
 
   if (!device) {
     return (
-      <div className="min-h-screen bg-linear-to-br from-gray-50 to-purple-50 flex items-center justify-center">
+      <div className="min-h-[calc(100vh-64px)] bg-linear-to-br from-gray-50 to-purple-50 flex justify-center items-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
           <p className="mt-4 text-gray-700">
@@ -80,7 +80,7 @@ export function Device() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-50 to-purple-50">
+    <div className="min-h-[calc(100vh-64px)] bg-linear-to-br from-gray-50 to-purple-50">
       <div className="max-w-7xl mx-auto px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
