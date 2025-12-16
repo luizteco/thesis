@@ -42,8 +42,8 @@ function Navigation() {
         <Link className={getLinkClassName("/")} to="/">
           Home
         </Link>
-        <Link className={getLinkClassName("/faq")} to="/faq">
-          FAQ
+        <Link className={getLinkClassName("/about")} to="/about">
+          About
         </Link>
         <Link
           className={getLinkClassName("/how-to-measure")}
@@ -51,11 +51,11 @@ function Navigation() {
         >
           How to Measure
         </Link>
-        <Link className={getLinkClassName("/about")} to="/about">
-          About
-        </Link>
         <Link className={getLinkClassName("/printers")} to="/printers">
-          3D Printers
+          3D Printing
+        </Link>
+        <Link className={getLinkClassName("/faq")} to="/faq">
+          FAQ
         </Link>
       </div>
     </nav>
