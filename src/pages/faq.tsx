@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type FAQItemProps = {
   question: string;
@@ -42,67 +43,56 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { t } = useTranslation();
 
   const faqs = [
     {
-      question: "What is 3D printing and how does it work?",
-      answer:
-        "3D printing is an additive manufacturing technology that creates physical objects layer by layer from a digital model. A 3D printer heats a plastic filament (usually PLA or PETG) and deposits it precisely to build the desired object. It's like a regular printer, but in three dimensions.",
+      question: t("faq.questions.q1.question"),
+      answer: t("faq.questions.q1.answer"),
     },
     {
-      question: "Do I need to have a 3D printer at home?",
-      answer:
-        "Not necessarily. You can use the generated STL file at local 3D printing services, makerspaces, public libraries, technical schools, or even order printing online. Many cities have community spaces with 3D printers available.",
+      question: t("faq.questions.q2.question"),
+      answer: t("faq.questions.q2.answer"),
     },
     {
-      question: "How much does it cost to print a device?",
-      answer:
-        "The cost varies depending on the device size and material used, but generally ranges from $1 to $6 in materials. If you use a printing service, there may be additional labor costs. Still, it's much more affordable than traditional custom devices, which can cost hundreds of dollars.",
+      question: t("faq.questions.q3.question"),
+      answer: t("faq.questions.q3.answer"),
     },
     {
-      question: "What material should I use for printing?",
-      answer:
-        "We recommend PLA for most devices as it's safe, easy to print, and suitable for hand contact. PETG is a more durable alternative and heat-resistant. For kitchen utensils, make sure to use food-safe filaments and clean properly after use.",
+      question: t("faq.questions.q4.question"),
+      answer: t("faq.questions.q4.answer"),
     },
     {
-      question: "How do I measure the hand correctly?",
-      answer:
-        'Check our "How to Measure" page for a detailed guide with illustrations. In summary, you\'ll need to measure hand length (from middle finger tip to wrist), palm width, and comfortable grip diameter using a ruler in centimeters.',
+      question: t("faq.questions.q5.question"),
+      answer: t("faq.questions.q5.answer"),
     },
     {
-      question: "Do the devices work for all types of Parkinson's?",
-      answer:
-        "The devices can help at different stages of Parkinson's, especially with tremors and grip difficulties. However, each case is unique. We always recommend consulting a doctor or occupational therapist to assess whether the device is suitable for your specific needs.",
+      question: t("faq.questions.q6.question"),
+      answer: t("faq.questions.q6.answer"),
     },
     {
-      question: "How do I clean and maintain the devices?",
-      answer:
-        "Wash with warm water and mild soap. Don't use very hot water, as it can deform the plastic. Dry completely before use. For kitchen utensils, hand washing is recommended instead of dishwasher.",
+      question: t("faq.questions.q7.question"),
+      answer: t("faq.questions.q7.answer"),
     },
     {
-      question: "Can I adjust the device if it's not comfortable?",
-      answer:
-        "Yes! One of the great advantages of 3D printing is that you can generate new files with adjusted measurements as many times as needed, at no additional cost. Just return to the product page, enter new measurements, and generate a new STL file.",
+      question: t("faq.questions.q8.question"),
+      answer: t("faq.questions.q8.answer"),
     },
     {
-      question: "How long does it take to print a device?",
-      answer:
-        "It depends on size and complexity, but generally between 2 to 6 hours. Smaller devices like pen grips can take 2-3 hours, while adapted utensils can take 4-6 hours. Printing is automatic, so you can leave the printer working overnight.",
+      question: t("faq.questions.q9.question"),
+      answer: t("faq.questions.q9.answer"),
     },
     {
-      question: "Do the devices replace medical treatment?",
-      answer:
-        "No. These devices are auxiliary and can improve quality of life and autonomy, but they don't replace medication, physical therapy, or medical follow-up. Always consult health professionals about your treatment.",
+      question: t("faq.questions.q10.question"),
+      answer: t("faq.questions.q10.answer"),
     },
     {
-      question: "Can I use the files commercially?",
-      answer:
-        "The generated files are for personal and non-commercial use. You can print for yourself or to help family and friends, but you should not sell the printed devices or STL files.",
+      question: t("faq.questions.q11.question"),
+      answer: t("faq.questions.q11.answer"),
     },
     {
-      question: "What if I have problems with the file or printing?",
-      answer:
-        "Contact us through our contact form. While we can't provide technical support for specific printers, we can help with issues related to STL files or measurement adjustments.",
+      question: t("faq.questions.q12.question"),
+      answer: t("faq.questions.q12.answer"),
     },
   ];
 
@@ -111,11 +101,9 @@ export function FAQ() {
       <div className="max-w-4xl mx-auto px-8">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-black mb-4">
-            Frequently Asked Questions
+            {t("faq.title")}
           </h1>
-          <p className="text-xl text-gray-700">
-            Everything you need to know about our assistive devices
-          </p>
+          <p className="text-xl text-gray-700">{t("faq.subtitle")}</p>
         </div>
 
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 mb-8">
@@ -132,10 +120,10 @@ export function FAQ() {
 
         <div className="bg-purple-50 rounded-2xl p-8 border border-purple-500/20 text-center">
           <h3 className="text-2xl font-bold text-black mb-3">
-            Didn't find your answer?
+            {t("faq.notFound")}
           </h3>
           <p className="text-lg text-gray-700 mb-6">
-            Contact us through email:{" "}
+            {t("faq.contact")}{" "}
             <a
               href="mailto:contact@assisttech.com"
               className="text-purple-500 hover:text-purple-700 font-semibold transition-colors"

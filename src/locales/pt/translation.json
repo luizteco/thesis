@@ -1,0 +1,217 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "howToMeasure": "Como Medir",
+    "printers": "Impressão 3D",
+    "faq": "Perguntas Frequentes",
+    "back": "Voltar"
+  },
+  "welcome": {
+    "title": "Tecnologia assistiva personalizada para Parkinson",
+    "subtitle": "Dispositivos ergonômicos impressos em 3D e adaptados à anatomia de cada paciente.",
+    "exploreProducts": "Explorar Produtos"
+  },
+  "devices": {
+    "title": "Nossos Produtos",
+    "subtitle": "Cada dispositivo é projetado para proporcionar autonomia e conforto no dia a dia",
+    "loading": "Carregando dispositivos..."
+  },
+  "device": {
+    "loading": "Carregando dispositivo, ou não foi encontrado...",
+    "customizeDimensions": "Personalizar Dimensões",
+    "preview": "Pré-visualização",
+    "width": "Largura (mm)",
+    "height": "Altura (mm)",
+    "depth": "Profundidade (mm)",
+    "download": "Baixar {{name}}",
+    "downloading": "Baixando..."
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Tudo o que você precisa saber sobre nossos dispositivos assistivos",
+    "notFound": "Não encontrou sua resposta?",
+    "contact": "Entre em contato através do email:",
+    "questions": {
+      "q1": {
+        "question": "O que é impressão 3D e como funciona?",
+        "answer": "Impressão 3D é uma tecnologia de manufatura aditiva que cria objetos físicos camada por camada a partir de um modelo digital. Uma impressora 3D aquece um filamento plástico (geralmente PLA ou PETG) e o deposita com precisão para construir o objeto desejado. É como uma impressora comum, mas em três dimensões."
+      },
+      "q2": {
+        "question": "Preciso ter uma impressora 3D em casa?",
+        "answer": "Não necessariamente. Você pode usar o arquivo STL gerado em serviços locais de impressão 3D, makerspaces, bibliotecas públicas, escolas técnicas ou até encomendar a impressão online. Muitas cidades têm espaços comunitários com impressoras 3D disponíveis."
+      },
+      "q3": {
+        "question": "Quanto custa imprimir um dispositivo?",
+        "answer": "O custo varia dependendo do tamanho do dispositivo e do material usado, mas geralmente varia de R$5 a R$30 em materiais. Se você usar um serviço de impressão, pode haver custos adicionais de mão de obra. Ainda assim, é muito mais acessível que dispositivos personalizados tradicionais, que podem custar centenas de reais."
+      },
+      "q4": {
+        "question": "Que material devo usar para impressão?",
+        "answer": "Recomendamos PLA para a maioria dos dispositivos, pois é seguro, fácil de imprimir e adequado para contato com as mãos. PETG é uma alternativa mais durável e resistente ao calor. Para utensílios de cozinha, certifique-se de usar filamentos atóxicos e limpe adequadamente após o uso."
+      },
+      "q5": {
+        "question": "Como medir a mão corretamente?",
+        "answer": "Consulte nossa página \"Como Medir\" para um guia detalhado com ilustrações. Em resumo, você precisará medir o comprimento da mão (da ponta do dedo médio ao pulso), largura da palma e diâmetro de pegada confortável usando uma régua em centímetros."
+      },
+      "q6": {
+        "question": "Os dispositivos funcionam para todos os tipos de Parkinson?",
+        "answer": "Os dispositivos podem ajudar em diferentes estágios do Parkinson, especialmente com tremores e dificuldades de pegada. No entanto, cada caso é único. Sempre recomendamos consultar um médico ou terapeuta ocupacional para avaliar se o dispositivo é adequado para suas necessidades específicas."
+      },
+      "q7": {
+        "question": "Como limpar e manter os dispositivos?",
+        "answer": "Lave com água morna e sabão neutro. Não use água muito quente, pois pode deformar o plástico. Seque completamente antes de usar. Para utensílios de cozinha, recomenda-se lavar à mão em vez de usar lava-louças."
+      },
+      "q8": {
+        "question": "Posso ajustar o dispositivo se não estiver confortável?",
+        "answer": "Sim! Uma das grandes vantagens da impressão 3D é que você pode gerar novos arquivos com medidas ajustadas quantas vezes precisar, sem custo adicional. Basta retornar à página do produto, inserir novas medidas e gerar um novo arquivo STL."
+      },
+      "q9": {
+        "question": "Quanto tempo leva para imprimir um dispositivo?",
+        "answer": "Depende do tamanho e complexidade, mas geralmente entre 2 a 6 horas. Dispositivos menores como pegadores de caneta podem levar 2-3 horas, enquanto utensílios adaptados podem levar 4-6 horas. A impressão é automática, então você pode deixar a impressora trabalhando durante a noite."
+      },
+      "q10": {
+        "question": "Os dispositivos substituem o tratamento médico?",
+        "answer": "Não. Estes dispositivos são auxiliares e podem melhorar a qualidade de vida e autonomia, mas não substituem medicamentos, fisioterapia ou acompanhamento médico. Sempre consulte profissionais de saúde sobre seu tratamento."
+      },
+      "q11": {
+        "question": "Posso usar os arquivos comercialmente?",
+        "answer": "Os arquivos gerados são para uso pessoal e não comercial. Você pode imprimir para si mesmo ou para ajudar familiares e amigos, mas não deve vender os dispositivos impressos ou arquivos STL."
+      },
+      "q12": {
+        "question": "E se eu tiver problemas com o arquivo ou impressão?",
+        "answer": "Entre em contato através do nosso formulário de contato. Embora não possamos fornecer suporte técnico para impressoras específicas, podemos ajudar com questões relacionadas a arquivos STL ou ajustes de medidas."
+      }
+    }
+  },
+  "howToMeasure": {
+    "title": "Como Medir Sua Mão",
+    "subtitle": "Guia simples para obter medidas precisas e personalizar seu dispositivo",
+    "requiredMaterials": "Materiais Necessários",
+    "materials": {
+      "ruler": "Régua ou fita métrica (em centímetros)",
+      "paper": "Papel e caneta para anotar as medidas",
+      "helper": "Alguém para ajudar com a medição (recomendado)"
+    },
+    "measurement1": {
+      "badge": "Medida 1",
+      "title": "Comprimento da Mão",
+      "description": "Meça da ponta do dedo médio até a primeira linha do pulso (onde a palma começa).",
+      "tip": "Mantenha a mão relaxada e plana sobre uma superfície. A mão não deve estar fechada nem totalmente esticada."
+    },
+    "measurement2": {
+      "badge": "Medida 2",
+      "title": "Largura da Mão",
+      "description": "Meça a largura da palma na parte mais larga, geralmente na base dos dedos, da borda externa do dedo indicador até a borda externa do dedo mínimo.",
+      "tip": "Não force os dedos. Deixe a mão em uma posição natural e confortável."
+    },
+    "measurement3": {
+      "badge": "Medida 3",
+      "title": "Diâmetro de Pegada",
+      "description": "Peça para a pessoa segurar um objeto cilíndrico confortavelmente (como uma garrafa ou tubo) e meça o diâmetro do objeto. Este é o diâmetro ideal de pegada para conforto.",
+      "tip": "A pegada deve ser confortável. Se houver tremores, teste diferentes diâmetros para encontrar o mais estável."
+    },
+    "considerations": {
+      "title": "Considerações Importantes",
+      "c1": "Todas as medidas devem estar em centímetros com uma casa decimal (ex: 18,5 cm)",
+      "c2": "Sempre meça a mão dominante (a mão que será usada para segurar o dispositivo)",
+      "c3": "Se houver edema (inchaço), considere as medidas da mão em estado normal",
+      "c4": "Em caso de dúvida entre duas medidas, prefira a maior para garantir o conforto"
+    },
+    "questionsPrompt": "Tem dúvidas sobre as medições?",
+    "seeFAQ": "Veja as Perguntas Frequentes"
+  },
+  "about": {
+    "title": "Sobre o Projeto",
+    "subtitle": "Combinando tecnologia e empatia para criar soluções acessíveis",
+    "mission": {
+      "title": "Nossa Missão",
+      "description": "Democratizar o acesso a tecnologias assistivas personalizadas através da impressão 3D. Acreditamos que toda pessoa com Parkinson merece dispositivos adaptados à sua anatomia única, possibilitando maior autonomia e qualidade de vida nas atividades diárias."
+    },
+    "problem": {
+      "title": "O Problema",
+      "p1": "O Parkinson afeta mais de 10 milhões de pessoas no mundo. Tremores, rigidez muscular e dificuldades motoras transformam atividades simples como comer, escrever e segurar objetos em verdadeiros desafios.",
+      "p2": "Dispositivos assistivos genéricos raramente atendem às necessidades individuais. Cada pessoa tem anatomia diferente, e soluções personalizadas costumam ser caras e inacessíveis."
+    },
+    "solution": {
+      "title": "Nossa Solução",
+      "p1": "Através da impressão 3D e design paramétrico, criamos dispositivos assistivos personalizados de forma acessível. Nossa plataforma transforma medidas simples da mão em modelos 3D otimizados para cada paciente.",
+      "p2": "Qualquer pessoa com acesso a uma impressora 3D — em casa, bibliotecas, escolas ou makerspaces — pode criar dispositivos personalizados, eliminando barreiras de custo e distribuição."
+    },
+    "design": {
+      "title": "Design Centrado no Humano",
+      "intro": "Nosso trabalho é guiado por princípios de design universal e centrado no usuário. Cada dispositivo é:",
+      "ergonomic": "Ergonômico:",
+      "ergonomicDesc": "Adaptado à anatomia e conforto individual",
+      "functional": "Funcional:",
+      "functionalDesc": "Projetado para reduzir tremores e facilitar movimentos",
+      "accessible": "Acessível:",
+      "accessibleDesc": "Custo reduzido através da fabricação local",
+      "respectful": "Respeitoso:",
+      "respectfulDesc": "Design discreto e digno, não estigmatizante"
+    },
+    "important": {
+      "title": "Importante",
+      "description": "Os dispositivos nesta plataforma são auxiliares e não substituem o tratamento médico profissional. Sempre consulte um médico ou terapeuta ocupacional sobre as melhores soluções para cada caso específico."
+    },
+    "cta": {
+      "title": "Pronto para começar?",
+      "button": "Explorar Produtos"
+    }
+  },
+  "printers": {
+    "title": "Impressoras 3D",
+    "subtitle": "O poder transformador da descentralização da produção",
+    "hero": "As impressoras 3D estão revolucionando como produzimos, distribuímos e acessamos produtos. Mais do que uma tecnologia, elas representam uma mudança fundamental: do modelo de manufatura centralizada para um futuro descentralizado, democrático e sustentável.",
+    "industrial": {
+      "title": "Da Revolução Industrial à Revolução Digital",
+      "p1": "Por séculos, a produção em massa exigiu fábricas gigantes, cadeias de suprimentos complexas e distribuição global. Produtos padronizados eram fabricados aos milhões, mas a personalização era impossível ou proibitivamente cara.",
+      "p2": "As impressoras 3D revertem esse paradigma: a fábrica vem até o usuário, não o contrário. Qualquer pessoa com acesso a uma impressora pode produzir localmente, sob demanda e personalizado."
+    },
+    "decentralization": {
+      "title": "Descentralização: Poder nas Mãos de Muitos",
+      "intro": "A descentralização da produção significa que comunidades, escolas, bibliotecas e até famílias podem fabricar o que precisam, quando precisam:",
+      "elimination": "Eliminação de intermediários:",
+      "eliminationDesc": "Sem distribuidores, atacadistas ou importadores — reduzindo drasticamente os custos",
+      "independence": "Independência geográfica:",
+      "independenceDesc": "Comunidades remotas ou países em desenvolvimento podem produzir localmente",
+      "onDemand": "Produção sob demanda:",
+      "onDemandDesc": "Sem estoque, sem desperdício — apenas o necessário é fabricado",
+      "personalization": "Personalização em escala:",
+      "personalizationDesc": "Cada produto pode ser único, adaptado às necessidades individuais"
+    },
+    "impact": {
+      "title": "Impacto Social e Democratização",
+      "intro": "As impressoras 3D têm potencial transformador especialmente em áreas como saúde, educação e acessibilidade:",
+      "healthcare": "Saúde Acessível",
+      "healthcareDesc": "Próteses, órteses, dispositivos assistivos e ferramentas médicas podem ser personalizados e produzidos a uma fração dos custos tradicionais, democratizando o acesso à saúde de qualidade.",
+      "education": "Educação e Inovação",
+      "educationDesc": "Escolas e universidades podem ensinar design, engenharia e manufatura de forma prática, empoderando a próxima geração de inventores.",
+      "sustainability": "Sustentabilidade",
+      "sustainabilityDesc": "A produção local reduz drasticamente as emissões de transporte. Os materiais podem ser reciclados ou biodegradáveis, criando uma economia circular."
+    },
+    "speed": {
+      "title": "Velocidade da Transformação",
+      "p1": "O que antes levava semanas de envio internacional agora leva horas de impressão local. O que custava milhares em ferramentas agora custa centavos em material plástico. O que exigia equipes de engenharia agora pode ser feito por uma única pessoa com software gratuito.",
+      "p2": "Esta velocidade de transformação está apenas começando. Novos materiais (metais, cerâmicas, biocompatíveis), impressoras mais rápidas e software mais inteligente expandirão ainda mais as possibilidades."
+    },
+    "makerspaces": {
+      "title": "Makerspaces e Colaboração",
+      "p1": "Você não precisa possuir uma impressora 3D para se beneficiar desta revolução. Makerspaces, FabLabs, bibliotecas públicas e cafés especializados oferecem acesso compartilhado a esta tecnologia.",
+      "p2": "Ainda mais importante: comunidades online compartilham designs gratuitamente. Milhões de modelos 3D estão disponíveis para download, adaptação e impressão imediata. Conhecimento aberto + manufatura local = poder descentralizado."
+    },
+    "platform": {
+      "title": "Nossa Plataforma: Descentralização em Ação",
+      "intro": "Este projeto é um exemplo prático do poder da descentralização. Em vez de fabricar dispositivos assistivos em uma fábrica e enviá-los aos clientes:",
+      "step1": "Você mede sua própria mão em casa",
+      "step2": "Nosso software gera um modelo 3D personalizado instantaneamente",
+      "step3": "Você imprime localmente — em casa, biblioteca ou makerspace",
+      "step4": "O dispositivo está pronto em horas, não semanas",
+      "conclusion": "Este é o futuro da manufatura: descentralizada, personalizada, acessível e humana."
+    },
+    "cta": {
+      "title": "Uma Nova Era de Produção",
+      "description": "As impressoras 3D não são apenas ferramentas — são catalisadoras de transformação social. Ao descentralizar a produção, democratizamos o acesso, empoderamos comunidades e criamos um futuro onde a tecnologia verdadeiramente serve à humanidade.",
+      "button": "Explorar Produtos"
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { FAQ } from "@pages/faq";
 import { HowToMeasure } from "@pages/how-to-measure";
 import { Printers } from "@pages/printers";
 import { Welcome } from "@pages/welcome";
+import { useTranslation } from "react-i18next";
 import {
   BrowserRouter,
   Link,
@@ -17,6 +18,7 @@ import {
 function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const isHome = location.pathname === "/";
 
   const getLinkClassName = (path: string) => {
@@ -26,6 +28,11 @@ function Navigation() {
         ? "text-purple-700 bg-purple-50 px-3 py-1 rounded-lg"
         : "text-purple-500 py-1 hover:text-purple-700"
     }`;
+  };
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "en" ? "pt" : "en";
+    i18n.changeLanguage(newLang);
   };
 
   return (
@@ -40,23 +47,31 @@ function Navigation() {
           </button>
         )}
         <Link className={getLinkClassName("/")} to="/">
-          Home
+          {t("nav.home")}
         </Link>
         <Link className={getLinkClassName("/about")} to="/about">
-          About
+          {t("nav.about")}
         </Link>
         <Link
           className={getLinkClassName("/how-to-measure")}
           to="/how-to-measure"
         >
-          How to Measure
+          {t("nav.howToMeasure")}
         </Link>
         <Link className={getLinkClassName("/printers")} to="/printers">
-          3D Printing
+          {t("nav.printers")}
         </Link>
         <Link className={getLinkClassName("/faq")} to="/faq">
-          FAQ
+          {t("nav.faq")}
         </Link>
+        <div className="ml-auto">
+          <button
+            onClick={toggleLanguage}
+            className="px-4 py-2 text-sm font-semibold text-purple-500 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
+          >
+            {i18n.language === "en" ? "PT" : "EN"}
+          </button>
+        </div>
       </div>
     </nav>
   );

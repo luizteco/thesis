@@ -1,0 +1,217 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "howToMeasure": "How to Measure",
+    "printers": "3D Printing",
+    "faq": "FAQ",
+    "back": "Back"
+  },
+  "welcome": {
+    "title": "Personalized assistive technology for Parkinson's",
+    "subtitle": "Ergonomic devices 3D printed and adapted to each patient's anatomy.",
+    "exploreProducts": "Explore Products"
+  },
+  "devices": {
+    "title": "Our Products",
+    "subtitle": "Each device is designed to provide autonomy and comfort in daily life",
+    "loading": "Loading devices..."
+  },
+  "device": {
+    "loading": "Loading device, or it could not be found...",
+    "customizeDimensions": "Customize Dimensions",
+    "preview": "Preview",
+    "width": "Width (mm)",
+    "height": "Height (mm)",
+    "depth": "Depth (mm)",
+    "download": "Download {{name}}",
+    "downloading": "Downloading..."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our assistive devices",
+    "notFound": "Didn't find your answer?",
+    "contact": "Contact us through email:",
+    "questions": {
+      "q1": {
+        "question": "What is 3D printing and how does it work?",
+        "answer": "3D printing is an additive manufacturing technology that creates physical objects layer by layer from a digital model. A 3D printer heats a plastic filament (usually PLA or PETG) and deposits it precisely to build the desired object. It's like a regular printer, but in three dimensions."
+      },
+      "q2": {
+        "question": "Do I need to have a 3D printer at home?",
+        "answer": "Not necessarily. You can use the generated STL file at local 3D printing services, makerspaces, public libraries, technical schools, or even order printing online. Many cities have community spaces with 3D printers available."
+      },
+      "q3": {
+        "question": "How much does it cost to print a device?",
+        "answer": "The cost varies depending on the device size and material used, but generally ranges from $1 to $6 in materials. If you use a printing service, there may be additional labor costs. Still, it's much more affordable than traditional custom devices, which can cost hundreds of dollars."
+      },
+      "q4": {
+        "question": "What material should I use for printing?",
+        "answer": "We recommend PLA for most devices as it's safe, easy to print, and suitable for hand contact. PETG is a more durable alternative and heat-resistant. For kitchen utensils, make sure to use food-safe filaments and clean properly after use."
+      },
+      "q5": {
+        "question": "How do I measure the hand correctly?",
+        "answer": "Check our \"How to Measure\" page for a detailed guide with illustrations. In summary, you'll need to measure hand length (from middle finger tip to wrist), palm width, and comfortable grip diameter using a ruler in centimeters."
+      },
+      "q6": {
+        "question": "Do the devices work for all types of Parkinson's?",
+        "answer": "The devices can help at different stages of Parkinson's, especially with tremors and grip difficulties. However, each case is unique. We always recommend consulting a doctor or occupational therapist to assess whether the device is suitable for your specific needs."
+      },
+      "q7": {
+        "question": "How do I clean and maintain the devices?",
+        "answer": "Wash with warm water and mild soap. Don't use very hot water, as it can deform the plastic. Dry completely before use. For kitchen utensils, hand washing is recommended instead of dishwasher."
+      },
+      "q8": {
+        "question": "Can I adjust the device if it's not comfortable?",
+        "answer": "Yes! One of the great advantages of 3D printing is that you can generate new files with adjusted measurements as many times as needed, at no additional cost. Just return to the product page, enter new measurements, and generate a new STL file."
+      },
+      "q9": {
+        "question": "How long does it take to print a device?",
+        "answer": "It depends on size and complexity, but generally between 2 to 6 hours. Smaller devices like pen grips can take 2-3 hours, while adapted utensils can take 4-6 hours. Printing is automatic, so you can leave the printer working overnight."
+      },
+      "q10": {
+        "question": "Do the devices replace medical treatment?",
+        "answer": "No. These devices are auxiliary and can improve quality of life and autonomy, but they don't replace medication, physical therapy, or medical follow-up. Always consult health professionals about your treatment."
+      },
+      "q11": {
+        "question": "Can I use the files commercially?",
+        "answer": "The generated files are for personal and non-commercial use. You can print for yourself or to help family and friends, but you should not sell the printed devices or STL files."
+      },
+      "q12": {
+        "question": "What if I have problems with the file or printing?",
+        "answer": "Contact us through our contact form. While we can't provide technical support for specific printers, we can help with issues related to STL files or measurement adjustments."
+      }
+    }
+  },
+  "howToMeasure": {
+    "title": "How to Measure Your Hand",
+    "subtitle": "Simple guide to get accurate measurements and customize your device",
+    "requiredMaterials": "Required Materials",
+    "materials": {
+      "ruler": "Ruler or measuring tape (in centimeters)",
+      "paper": "Paper and pen to note measurements",
+      "helper": "Someone to help with measurement (recommended)"
+    },
+    "measurement1": {
+      "badge": "Measurement 1",
+      "title": "Hand Length",
+      "description": "Measure from the tip of the middle finger to the first wrist line (where the palm begins).",
+      "tip": "Keep the hand relaxed and flat on a surface. The hand should not be clenched or fully stretched."
+    },
+    "measurement2": {
+      "badge": "Measurement 2",
+      "title": "Hand Width",
+      "description": "Measure the palm width at its widest part, usually at the base of the fingers, from the outer edge of the index finger to the outer edge of the little finger.",
+      "tip": "Don't force the fingers. Leave the hand in a natural and comfortable position."
+    },
+    "measurement3": {
+      "badge": "Measurement 3",
+      "title": "Grip Diameter",
+      "description": "Ask the person to hold a cylindrical object comfortably (such as a bottle or tube) and measure the object's diameter. This is the ideal grip for comfort.",
+      "tip": "The grip should be comfortable. If there are tremors, test different diameters to find the most stable one."
+    },
+    "considerations": {
+      "title": "Important Considerations",
+      "c1": "All measurements should be in centimeters with one decimal place (e.g. 18.5 cm)",
+      "c2": "Always measure the dominant hand (the hand that will be used to hold the device)",
+      "c3": "If there is edema (swelling), consider the hand measurements in normal state",
+      "c4": "When in doubt between two measurements, prefer the larger one to ensure comfort"
+    },
+    "questionsPrompt": "Have questions about measurements?",
+    "seeFAQ": "See Frequently Asked Questions"
+  },
+  "about": {
+    "title": "About the Project",
+    "subtitle": "Combining technology and empathy to create accessible solutions",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To democratize access to personalized assistive technologies through 3D printing. We believe that every person with Parkinson's deserves devices adapted to their unique anatomy, enabling greater autonomy and quality of life in daily activities."
+    },
+    "problem": {
+      "title": "The Problem",
+      "p1": "Parkinson's affects more than 10 million people worldwide. Tremors, muscle rigidity and motor difficulties turn simple activities like eating, writing and holding objects into real challenges.",
+      "p2": "Generic assistive devices rarely meet individual needs. Each person has different anatomy, and personalized solutions are often expensive and inaccessible."
+    },
+    "solution": {
+      "title": "Our Solution",
+      "p1": "Through 3D printing and parametric design, we create personalized assistive devices affordably. Our platform transforms simple hand measurements into 3D models optimized for each patient.",
+      "p2": "Anyone with access to a 3D printer — at home, libraries, schools or makerspaces — can create personalized devices, eliminating cost and distribution barriers."
+    },
+    "design": {
+      "title": "Human-Centered Design",
+      "intro": "Our work is guided by principles of universal and user-centered design. Each device is:",
+      "ergonomic": "Ergonomic:",
+      "ergonomicDesc": "Adapted to individual anatomy and comfort",
+      "functional": "Functional:",
+      "functionalDesc": "Designed to reduce tremors and facilitate movements",
+      "accessible": "Accessible:",
+      "accessibleDesc": "Reduced cost through local manufacturing",
+      "respectful": "Respectful:",
+      "respectfulDesc": "Discreet and dignified design, not stigmatizing"
+    },
+    "important": {
+      "title": "Important",
+      "description": "The devices on this platform are auxiliary and do not replace professional medical treatment. Always consult a doctor or occupational therapist about the best solutions for each specific case."
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "button": "Explore Products"
+    }
+  },
+  "printers": {
+    "title": "3D Printers",
+    "subtitle": "The transformative power of production decentralization",
+    "hero": "3D printers are revolutionizing how we produce, distribute and access products. More than a technology, they represent a fundamental shift: from the centralized manufacturing model to a decentralized, democratic, and sustainable future.",
+    "industrial": {
+      "title": "From Industrial Revolution to Digital Revolution",
+      "p1": "For centuries, mass production required giant factories, complex supply chains, and global distribution. Standardized products were manufactured by the millions, but personalization was impossible or prohibitively expensive.",
+      "p2": "3D printers reverse this paradigm: the factory comes to the user, not the other way around. Anyone with access to a printer can produce locally, on-demand, and personalized."
+    },
+    "decentralization": {
+      "title": "Decentralization: Power in the Hands of Many",
+      "intro": "Production decentralization means communities, schools, libraries and even families can manufacture what they need, when they need it:",
+      "elimination": "Elimination of intermediaries:",
+      "eliminationDesc": "No distributors, wholesalers, or importers — drastically reducing costs",
+      "independence": "Geographic independence:",
+      "independenceDesc": "Remote communities or developing countries can produce locally",
+      "onDemand": "On-demand production:",
+      "onDemandDesc": "No inventory, no waste — only what's necessary is manufactured",
+      "personalization": "Personalization at scale:",
+      "personalizationDesc": "Each product can be unique, adapted to individual needs"
+    },
+    "impact": {
+      "title": "Social Impact and Democratization",
+      "intro": "3D printers have transformative potential especially in areas like healthcare, education, and accessibility:",
+      "healthcare": "Accessible Healthcare",
+      "healthcareDesc": "Prosthetics, orthotics, assistive devices, and medical tools can be personalized and produced at a fraction of traditional costs, democratizing access to quality healthcare.",
+      "education": "Education and Innovation",
+      "educationDesc": "Schools and universities can teach design, engineering, and manufacturing hands-on, empowering the next generation of inventors.",
+      "sustainability": "Sustainability",
+      "sustainabilityDesc": "Local production drastically reduces transportation emissions. Materials can be recycled or biodegradable, creating a circular economy."
+    },
+    "speed": {
+      "title": "Speed of Transformation",
+      "p1": "What once took weeks of international shipping now takes hours of local printing. What cost thousands in tooling now costs pennies in plastic material. What required engineering teams can now be done by a single person with free software.",
+      "p2": "This speed of transformation is just beginning. New materials (metals, ceramics, biocompatible), faster printers, and smarter software will further expand possibilities."
+    },
+    "makerspaces": {
+      "title": "Makerspaces and Collaboration",
+      "p1": "You don't need to own a 3D printer to benefit from this revolution. Makerspaces, FabLabs, public libraries, and specialized cafés offer shared access to this technology.",
+      "p2": "Even more important: online communities share designs for free. Millions of 3D models are available for download, adaptation, and immediate printing. Open knowledge + local manufacturing = decentralized power."
+    },
+    "platform": {
+      "title": "Our Platform: Decentralization in Action",
+      "intro": "This project is a practical example of the power of decentralization. Instead of manufacturing assistive devices in a factory and shipping them to customers:",
+      "step1": "You measure your own hand at home",
+      "step2": "Our software generates a personalized 3D model instantly",
+      "step3": "You print locally — at home, library, or makerspace",
+      "step4": "The device is ready in hours, not weeks",
+      "conclusion": "This is the future of manufacturing: decentralized, personalized, accessible, and human."
+    },
+    "cta": {
+      "title": "A New Era of Production",
+      "description": "3D printers are not just tools — they are catalysts for social transformation. By decentralizing production, we democratize access, empower communities, and create a future where technology truly serves humanity.",
+      "button": "Explore Products"
+    }
+  }
+}

@@ -5,6 +5,7 @@ import {
 import { downloadObject } from "@components/download/download";
 import { Preview } from "@components/object/preview";
 import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { useGetDeviceById } from "./use-get-device";
 
@@ -19,6 +20,7 @@ export type DeviceConfig = {
 export function Device() {
   const { id } = useParams<{ id: string }>();
   const device = useGetDeviceById(id!);
+  const { t } = useTranslation();
 
   const [isDownloading, setIsDownloading] = useState(false);
   const [dimensions, setDimensions] = useState({
@@ -40,17 +42,17 @@ export function Device() {
 
   const CustomiseObjectFormFields: CustomiseObjectFormField[] = [
     {
-      label: "Width (mm)",
+      label: t("device.width"),
       inputId: "width",
       value: dimensions.width,
     },
     {
-      label: "Height (mm)",
+      label: t("device.height"),
       inputId: "height",
       value: dimensions.height,
     },
     {
-      label: "Depth (mm)",
+      label: t("device.depth"),
       inputId: "depth",
       value: dimensions.depth,
     },
@@ -71,9 +73,7 @@ export function Device() {
       <div className="min-h-[calc(100vh-64px)] bg-linear-to-br from-gray-50 to-purple-50 flex justify-center items-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-          <p className="mt-4 text-gray-700">
-            Loading device, or it could not be found...
-          </p>
+          <p className="mt-4 text-gray-700">{t("device.loading")}</p>
         </div>
       </div>
     );
@@ -91,7 +91,7 @@ export function Device() {
               <p className="text-lg text-gray-700">{device.description}</p>
 
               <h2 className="text-xl font-bold text-black mb-6">
-                Customize Dimensions
+                {t("device.customizeDimensions")}
               </h2>
               <CustomiseObjectForm
                 fields={CustomiseObjectFormFields}
@@ -105,10 +105,10 @@ export function Device() {
                 {isDownloading ? (
                   <span className="flex items-center justify-center gap-2">
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    Downloading...
+                    {t("device.downloading")}
                   </span>
                 ) : (
-                  `Download ${device.name}`
+                  t("device.download", { name: device.name })
                 )}
               </button>
             </div>
