@@ -19,6 +19,15 @@ function Navigation() {
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
 
+  const getLinkClassName = (path: string) => {
+    const isActive = location.pathname === path;
+    return `text-sm font-semibold transition-colors ${
+      isActive
+        ? "text-purple-700 bg-purple-50 px-3 py-1 rounded-lg"
+        : "text-purple-500 hover:text-purple-700"
+    }`;
+  };
+
   return (
     <nav className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
       <div className="max-w-7xl mx-auto px-8 py-4 flex items-center gap-6">
@@ -30,34 +39,22 @@ function Navigation() {
             ←
           </button>
         )}
-        <Link
-          className="text-sm font-semibold text-purple-500 hover:text-purple-700 transition-colors"
-          to="/"
-        >
+        <Link className={getLinkClassName("/")} to="/">
           Home
         </Link>
-        <Link
-          className="text-sm font-semibold text-purple-500 hover:text-purple-700 transition-colors"
-          to="/faq"
-        >
+        <Link className={getLinkClassName("/faq")} to="/faq">
           FAQ
         </Link>
         <Link
-          className="text-sm font-semibold text-purple-500 hover:text-purple-700 transition-colors"
+          className={getLinkClassName("/how-to-measure")}
           to="/how-to-measure"
         >
           How to Measure
         </Link>
-        <Link
-          className="text-sm font-semibold text-purple-500 hover:text-purple-700 transition-colors"
-          to="/about"
-        >
+        <Link className={getLinkClassName("/about")} to="/about">
           About
         </Link>
-        <Link
-          className="text-sm font-semibold text-purple-500 hover:text-purple-700 transition-colors"
-          to="/printers"
-        >
+        <Link className={getLinkClassName("/printers")} to="/printers">
           3D Printers
         </Link>
       </div>
