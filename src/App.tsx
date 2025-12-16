@@ -1,6 +1,8 @@
+import { About } from "@pages/about";
 import { Devices } from "@pages/devices";
 import { Device } from "@pages/devices/[id]/device";
 import { FAQ } from "@pages/faq";
+import { HowToMeasure } from "@pages/how-to-measure";
 import { Welcome } from "@pages/welcome";
 import {
   BrowserRouter,
@@ -39,6 +41,18 @@ function Navigation() {
         >
           FAQ
         </Link>
+        <Link
+          className="text-sm font-semibold text-purple-500 hover:text-purple-700 transition-colors"
+          to="/how-to-measure"
+        >
+          How to Measure
+        </Link>
+        <Link
+          className="text-sm font-semibold text-purple-500 hover:text-purple-700 transition-colors"
+          to="/about"
+        >
+          About
+        </Link>
       </div>
     </nav>
   );
@@ -53,6 +67,8 @@ function App() {
         <Route path="/devices" element={<Devices />} />
         <Route path="/device/:id" element={<Device />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/how-to-measure" element={<HowToMeasure />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );
