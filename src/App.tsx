@@ -1,5 +1,6 @@
 import { Devices } from "@pages/devices";
 import { Device } from "@pages/devices/[id]/device";
+import { FAQ } from "@pages/faq";
 import { Welcome } from "@pages/welcome";
 import {
   BrowserRouter,
@@ -32,6 +33,12 @@ function Navigation() {
         >
           Home
         </Link>
+        <Link
+          className="text-sm font-semibold text-purple-500 hover:text-purple-700 transition-colors"
+          to="/faq"
+        >
+          FAQ
+        </Link>
       </div>
     </nav>
   );
@@ -45,6 +52,7 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/devices" element={<Devices />} />
         <Route path="/device/:id" element={<Device />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
     </BrowserRouter>
   );
