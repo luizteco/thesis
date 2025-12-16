@@ -3,6 +3,7 @@ import { Devices } from "@pages/devices";
 import { Device } from "@pages/devices/[id]/device";
 import { FAQ } from "@pages/faq";
 import { HowToMeasure } from "@pages/how-to-measure";
+import { Printers } from "@pages/printers";
 import { Welcome } from "@pages/welcome";
 import {
   BrowserRouter,
@@ -53,6 +54,12 @@ function Navigation() {
         >
           About
         </Link>
+        <Link
+          className="text-sm font-semibold text-purple-500 hover:text-purple-700 transition-colors"
+          to="/printers"
+        >
+          3D Printers
+        </Link>
       </div>
     </nav>
   );
@@ -69,6 +76,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/how-to-measure" element={<HowToMeasure />} />
         <Route path="/about" element={<About />} />
+        <Route path="/printers" element={<Printers />} />
       </Routes>
     </BrowserRouter>
   );
