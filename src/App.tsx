@@ -24,7 +24,7 @@ function Navigation() {
     return `text-sm font-semibold transition-colors ${
       isActive
         ? "text-purple-700 bg-purple-50 px-3 py-1 rounded-lg"
-        : "text-purple-500 hover:text-purple-700"
+        : "text-purple-500 py-1 hover:text-purple-700"
     }`;
   };
 
