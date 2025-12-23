@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "simulate:download:button": "node --experimental-fetch scripts/simulate-download-button.js",
+    "simulate:download:all": "node --experimental-fetch scripts/simulate-download-all.js"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

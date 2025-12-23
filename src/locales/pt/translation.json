@@ -24,8 +24,24 @@
     "width": "Largura (mm)",
     "height": "Altura (mm)",
     "depth": "Profundidade (mm)",
+    "thickness": "Espessura (mm)",
+    "includeHandle": "Incluir cabo",
     "download": "Baixar {{name}}",
     "downloading": "Baixando..."
+    ,
+    "preview": "Pré-visualizar URLs",
+    "checkFiles": "Verificar disponibilidade dos arquivos",
+    "checking": "Verificando...",
+    "diagnostics": "Diagnóstico dos arquivos",
+    "status": {
+      "ok": "Disponível",
+      "notFound": "Não encontrado",
+      "error": "Erro",
+      "network": "Erro de rede/CORS"
+    },
+    "corsHelpShort": "Se vir 'Erro de rede/CORS', ative CORS ou use um proxy (veja o README)."
+    ,
+    "noCustomization": "Nenhuma personalização é necessária para este produto."
   },
   "faq": {
     "title": "Perguntas Frequentes",

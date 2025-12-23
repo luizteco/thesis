@@ -1,0 +1,24 @@
+Project notes — how to add product images and display STLs
+
+1) Where to put assets
+- Product cover images: add an image file under `public/preview-images/` and reference it in `public/devices.toml` as `previewImagePath` (e.g. `/preview-images/cutlery.svg`).
+- Product display STL: add a small preview `.stl` file under `public/preview-models/` and set `previewStlPath` in `public/devices.toml` (e.g. `/preview-models/cutlery-display.stl`).
+
+2) How to update devices
+- Edit `public/devices.toml` and update the `[[device]]` block for the product. Use `previewImagePath` and `previewStlPath` fields to point to your files.
+- Only the following products are supported in the UI: `cutlery`, `cup`, `button`, `bidet`.
+
+3) Per-product UI rules (already implemented)
+- `bidet`: no customization inputs — only title, information and download are shown.
+- `button`: shows **Width** and **Height** inputs (no depth/thickness input required).
+- `cup`: shows **Height** and **Thickness** inputs (no width input required).
+- `cutlery`: shows **Height** and **Thickness** inputs and an "Include handle" checkbox (no width input required).
+
+4) Testing locally
+- Start the dev server: `npm run dev` and open `http://localhost:5174`.
+- Verify the Devices page shows only the four products and that each product page shows the correct inputs and preview.
+
+5) Uploading to production
+- When deploying, upload your preview images and display STLs to the production `public` folder or your hosting bucket (Cloudflare R2). Update `previewImagePath` and `previewStlPath` to point to the production URLs if using R2.
+
+If you want, I can: (a) remove the unused placeholder image `public/preview-images/adaptive-handle.png`, or (b) add an admin script to validate that `previewStlPath` files exist and warn about missing preview models.

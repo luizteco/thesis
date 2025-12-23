@@ -1,27 +1,74 @@
 [[device]]
-name = "Adaptive Handle"
-id = "adaptive-handle"
-previewStlPath = "/preview-models/demo.stl"
-previewImagePath = "/preview-images/adaptive-handle.png"
-description = "An adaptive handle designed to provide a comfortable and secure grip for various tools and devices."
+name = "Cutlery"
+id = "cutlery"
+previewStlPath = "/preview-models/cutlery-display.stl"
+previewImagePath = "/preview-images/cutlery.svg"
+description = "Cutlery: two-piece system, body + handle/top. User can choose whether to include handle."
+productType = "cutlery"
+variablePattern = "h{h}-{part}.stl"
+handlePattern = "h{h}-t{t}-handle.stl"
+handleYesParts = ["body", "handle"]
+handleNoParts = ["body", "top"]
+prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
+sampleDims = { height = 197, thickness = 28 }
+# sizeTable for cutlery (HL -> widths narrow/med/wide and thickness t)
+sizeTable = [
+	{ h = 160, widths = { narrow = 67, med = 70, wide = 74 }, thickness = { narrow = 22, med = 24, wide = 26 } },
+	{ h = 167, widths = { narrow = 70, med = 74, wide = 77 }, thickness = { narrow = 23, med = 25, wide = 27 } },
+	{ h = 174, widths = { narrow = 73, med = 77, wide = 80 }, thickness = { narrow = 24, med = 26, wide = 28 } },
+	{ h = 180, widths = { narrow = 76, med = 79, wide = 83 }, thickness = { narrow = 25, med = 27, wide = 29 } },
+	{ h = 186, widths = { narrow = 78, med = 82, wide = 86 }, thickness = { narrow = 26, med = 28, wide = 30 } },
+	# 175 removed: not an available height
+	{ h = 182, widths = { narrow = 76, med = 80, wide = 84 }, thickness = { narrow = 25, med = 27, wide = 29 } },
+	{ h = 190, widths = { narrow = 80, med = 84, wide = 87 }, thickness = { narrow = 27, med = 29, wide = 30 } },
+	{ h = 197, widths = { narrow = 83, med = 87, wide = 91 }, thickness = { narrow = 28, med = 30, wide = 32 } },
+	{ h = 204, widths = { narrow = 86, med = 90, wide = 94 }, thickness = { narrow = 29, med = 31, wide = 33 } },
+]
 
 [[device]]
-name = "Adaptive Fork"
-id = "adaptive-fork"
-previewStlPath = "/preview-models/demo.stl"
-previewImagePath = "/preview-images/adaptive-handle.png"
-description = "An adaptive fork designed to provide a comfortable and secure grip for various tools and devices."
+name = "Cup"
+id = "cup"
+previewStlPath = "/preview-models/cup-display.stl"
+previewImagePath = "/preview-images/cup.svg"
+description = "Cup: three static files + one variable file depending on height and thickness."
+productType = "cup"
+staticFiles = ["cup-support.stl", "FlexStick.stl", "Lock.stl"]
+variablePattern = "h{h}-t{t}.stl"
+# Cloudflare R2 bucket base URL (points to 'downloads' folder)
+prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
 
 [[device]]
-name = "Adaptive Spoon"
-id = "adaptive-spoon"
-previewStlPath = "/preview-models/demo.stl"
-previewImagePath = "/preview-images/adaptive-handle.png"
-description = "An adaptive spoon designed to provide a comfortable and secure grip for various tools and devices."
+name = "Button"
+id = "button"
+previewStlPath = "/preview-models/button-display.stl"
+previewImagePath = "/preview-images/button.svg"
+description = "Button: includes a static pin and three variable parts (sa, sb, hook) depending on dimensions."
+productType = "button"
+staticFiles = ["Pin.stl"]
+variablePattern = "h{h}-w{w}-{part}.stl"
+variableParts = ["sa", "sb", "hook"]
+prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
+sampleDims = { width = 67, height = 160, depth = 20, thickness = 22 }
+# sizeTable: list of available heights (h) and corresponding widths/thickness for narrow/med/wide variants
+sizeTable = [
+	{ h = 160, widths = { narrow = 67, med = 70, wide = 74 }, thickness = { narrow = 22, med = 24, wide = 26 } },
+	{ h = 167, widths = { narrow = 70, med = 74, wide = 77 }, thickness = { narrow = 23, med = 25, wide = 27 } },
+	{ h = 174, widths = { narrow = 73, med = 77, wide = 80 }, thickness = { narrow = 24, med = 26, wide = 28 } },
+	{ h = 180, widths = { narrow = 76, med = 79, wide = 83 }, thickness = { narrow = 25, med = 27, wide = 29 } },
+	{ h = 186, widths = { narrow = 78, med = 82, wide = 86 }, thickness = { narrow = 26, med = 28, wide = 30 } },
+	# 175 removed: not an available height
+	{ h = 182, widths = { narrow = 76, med = 80, wide = 84 }, thickness = { narrow = 25, med = 27, wide = 29 } },
+	{ h = 190, widths = { narrow = 80, med = 84, wide = 87 }, thickness = { narrow = 27, med = 29, wide = 30 } },
+	{ h = 197, widths = { narrow = 83, med = 87, wide = 91 }, thickness = { narrow = 28, med = 30, wide = 32 } },
+	{ h = 204, widths = { narrow = 86, med = 90, wide = 94 }, thickness = { narrow = 29, med = 31, wide = 33 } },
+]
 
 [[device]]
-name = "Stabilised Pen"
-id = "stabilised-pen"
-previewStlPath = "/preview-models/demo.stl"
-previewImagePath = "/preview-images/adaptive-handle.png"
-description = "A stabilised pen designed to provide a comfortable and secure grip for various writing instruments."
+name = "Bidet"
+id = "bidet"
+previewStlPath = "/preview-models/bidet-display.stl"
+previewImagePath = "/preview-images/bidet.svg"
+description = "Bidet: single static file, same for every user."
+productType = "bidet"
+staticFiles = ["bidet.stl"]
+prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
