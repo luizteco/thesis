@@ -1,7 +1,7 @@
 Project notes — how to add product images and display STLs
 
 1) Where to put assets
-- Product cover images: add an image file under `public/preview-images/` and reference it in `public/devices.toml` as `previewImagePath` (e.g. `/preview-images/cutlery.svg`).
+- Product cover images: add an image file under `public/preview-images/` and reference it in `public/devices.toml` as `previewImagePath` (e.g. `/preview-images/cutlery.png`).
 - Product display STL: add a small preview `.stl` file under `public/preview-models/` and set `previewStlPath` in `public/devices.toml` (e.g. `/preview-models/cutlery-display.stl`).
 
 2) How to update devices

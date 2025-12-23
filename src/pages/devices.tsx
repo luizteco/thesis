@@ -30,6 +30,14 @@ export function Devices() {
                     src={device.previewImagePath}
                     alt={device.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // If PNG is missing, fall back to SVG (helps during transition)
+                      const img = e.currentTarget as HTMLImageElement;
+                      if (img.dataset.fallback !== "true") {
+                        img.dataset.fallback = "true";
+                        img.src = device.previewImagePath.replace(/\.png$/i, ".svg");
+                      }
+                    }}
                   />
                 </div>
                 <div className="p-6">
