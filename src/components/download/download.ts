@@ -47,7 +47,6 @@ async function existsUrl(url: string): Promise<boolean> {
     return false;
   }
 }
-
 function generateOffsets(maxOffset = 10) {
   // produce [0,1,-1,2,-2,3,-3,...] up to maxOffset
   const res: number[] = [0];
