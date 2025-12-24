@@ -24,8 +24,24 @@
     "width": "Width (mm)",
     "height": "Height (mm)",
     "depth": "Depth (mm)",
+    "thickness": "Thickness (mm)",
+    "includeHandle": "Include handle",
     "download": "Download {{name}}",
     "downloading": "Downloading..."
+    ,
+    "preview": "Preview URLs",
+    "checkFiles": "Check files availability",
+    "checking": "Checking...",
+    "diagnostics": "Files diagnostics",
+    "status": {
+      "ok": "Available",
+      "notFound": "Not found",
+      "error": "Error",
+      "network": "Network/CORS error"
+    },
+    "corsHelpShort": "If you see 'Network/CORS error', enable CORS or use a proxy (see README)."
+    ,
+    "noCustomization": "No customization required for this product."
   },
   "faq": {
     "title": "Frequently Asked Questions",
