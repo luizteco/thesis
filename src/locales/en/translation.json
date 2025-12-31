@@ -5,6 +5,7 @@
     "howToMeasure": "How to Measure",
     "printers": "3D Printing",
     "faq": "FAQ",
+    "requestProduct": "Request Product",
     "back": "Back"
   },
   "welcome": {
@@ -20,16 +21,14 @@
   "device": {
     "loading": "Loading device, or it could not be found...",
     "customizeDimensions": "Customize Dimensions",
-    "preview": "Preview",
+    "preview": "Preview URLs",
     "width": "Width (mm)",
     "height": "Length (mm)",
     "depth": "Depth (mm)",
     "thickness": "Thickness (mm)",
     "includeHandle": "Include handle",
     "download": "Download {{name}}",
-    "downloading": "Downloading..."
-    ,
-    "preview": "Preview URLs",
+    "downloading": "Downloading...",
     "checkFiles": "Check files availability",
     "checking": "Checking...",
     "diagnostics": "Files diagnostics",
@@ -39,8 +38,7 @@
       "error": "Error",
       "network": "Network/CORS error"
     },
-    "corsHelpShort": "If you see 'Network/CORS error', enable CORS or use a proxy (see README)."
-    ,
+    "corsHelpShort": "If you see 'Network/CORS error', enable CORS or use a proxy (see README).",
     "noCustomization": "No customization required for this product."
   },
   "faq": {
@@ -248,5 +246,17 @@
       "p3": "Users measure their hands, the platform generates a personalized 3D model, and devices are produced locally—in hours, not weeks. All files are free to download, modify, and adapt.",
       "p4": "The designs provided on this platform are optimized for FDM 3D printers, the most common and affordable printing technology available today, ensuring broad compatibility with low-cost machines and shared fabrication spaces. This approach replaces mass production with personalization by default, strengthening local economies while making assistive technology more accessible, adaptable, and human."
     }
+  },
+  "requestProduct": {
+    "title": "Didn't find the product you're looking for?",
+    "subtitle": "Share your product idea with our community. Vote on requests you'd like to see developed!",
+    "productName": "Product Name",
+    "namePlaceholder": "e.g., Non-slip grip for cutlery",
+    "description": "Describe the product you'd like to see",
+    "descriptionPlaceholder": "Tell us what this product should do, what problem it would solve, and any specific requirements or features you have in mind...",
+    "submit": "Submit Request",
+    "submitted": "Thank you! Your request has been submitted. Community members can now vote on it!",
+    "requests": "Product Requests",
+    "noRequests": "No product requests yet. Be the first to suggest something!"
   }
 }
