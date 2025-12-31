@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export function HowToMeasure() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-[calc(100vh-64px)] bg-gradient-to-br from-gray-50 to-purple-50 py-12">
       <div className="max-w-4xl mx-auto px-8">
@@ -21,10 +24,10 @@ export function HowToMeasure() {
             </svg>
           </div>
           <h1 className="text-5xl font-bold text-black mb-4">
-            How to Measure Your Hand
+            {t("howToMeasure.title")}
           </h1>
           <p className="text-xl text-gray-700">
-            Simple guide to get accurate measurements and customize your device
+            {t("howToMeasure.subtitle")}
           </p>
         </div>
 
@@ -32,74 +35,54 @@ export function HowToMeasure() {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-black mb-3">
-                Required Materials
+                {t("howToMeasure.requiredMaterials")}
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>Ruler or measuring tape (in centimeters)</li>
-                <li>Paper and pen to note measurements</li>
-                <li>Someone to help with measurement (recommended)</li>
+                <li>{t("howToMeasure.materials.ruler")}</li>
+                <li>{t("howToMeasure.materials.paper")}</li>
+                <li>{t("howToMeasure.materials.helper")}</li>
               </ul>
             </div>
 
-            <div className="border-t border-gray-200 pt-8">
+            <div className="border-t border-gray-200 pt-8 space-y-8">
+              <img
+                src="/preview-images/mesurements.png"
+                alt="Hand measurement guide showing length, width, and thickness"
+                className="w-full rounded-xl border border-gray-200 shadow-sm"
+              />
+
               <div className="mb-6">
-                <div className="inline-block bg-purple-500 text-white px-4 py-1 rounded-full mb-3 font-semibold">
-                  Measurement 1
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-3">
-                  Hand Length
-                </h3>
+                <h3 className="text-2xl font-bold text-black mb-3">{t("howToMeasure.measurement1.title")}</h3>
                 <p className="text-gray-700 mb-4">
-                  Measure from the tip of the middle finger to the first wrist
-                  line (where the palm begins).
+                  {t("howToMeasure.measurement1.description")}
                 </p>
                 <div className="bg-purple-50 p-4 rounded-lg border border-purple-500/20">
                   <p className="text-gray-700">
-                    <strong className="text-black">Tip:</strong> Keep the hand
-                    relaxed and flat on a surface. The hand should not be
-                    clenched or fully stretched.
+                    <strong className="text-black">{t("howToMeasure.tipLabel")}:</strong> {t("howToMeasure.measurement1.tip")}
                   </p>
                 </div>
               </div>
 
               <div className="mb-6">
-                <div className="inline-block bg-purple-500 text-white px-4 py-1 rounded-full mb-3 font-semibold">
-                  Measurement 2
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-3">
-                  Hand Width
-                </h3>
+                <h3 className="text-2xl font-bold text-black mb-3">{t("howToMeasure.measurement2.title")}</h3>
                 <p className="text-gray-700 mb-4">
-                  Measure the palm width at its widest part, usually at the base
-                  of the fingers, from the outer edge of the index finger to the
-                  outer edge of the little finger.
+                  {t("howToMeasure.measurement2.description")}
                 </p>
                 <div className="bg-purple-50 p-4 rounded-lg border border-purple-500/20">
                   <p className="text-gray-700">
-                    <strong className="text-black">Tip:</strong> Don't force the
-                    fingers. Leave the hand in a natural and comfortable
-                    position.
+                    <strong className="text-black">{t("howToMeasure.tipLabel")}:</strong> {t("howToMeasure.measurement2.tip")}
                   </p>
                 </div>
               </div>
 
               <div>
-                <div className="inline-block bg-purple-500 text-white px-4 py-1 rounded-full mb-3 font-semibold">
-                  Measurement 3
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-3">
-                  Grip Diameter
-                </h3>
+                <h3 className="text-2xl font-bold text-black mb-3">{t("howToMeasure.measurement3.title")}</h3>
                 <p className="text-gray-700 mb-4">
-                  Ask the person to hold a cylindrical object comfortably (such
-                  as a bottle or tube) and measure the object's diameter. This
-                  is the ideal grip for comfort.
+                  {t("howToMeasure.measurement3.description")}
                 </p>
                 <div className="bg-purple-50 p-4 rounded-lg border border-purple-500/20">
                   <p className="text-gray-700">
-                    <strong className="text-black">Tip:</strong> The grip should
-                    be comfortable. If there are tremors, test different
-                    diameters to find the most stable one.
+                    <strong className="text-black">{t("howToMeasure.tipLabel")}:</strong> {t("howToMeasure.measurement3.tip")}
                   </p>
                 </div>
               </div>
@@ -107,25 +90,13 @@ export function HowToMeasure() {
 
             <div className="border-t border-gray-200 pt-8">
               <h3 className="text-2xl font-bold text-black mb-3">
-                Important Considerations
+                {t("howToMeasure.considerations.title")}
               </h3>
               <div className="space-y-3 text-gray-700">
-                <p>
-                  • All measurements should be in <strong>centimeters</strong>{" "}
-                  with one decimal place (e.g. 18.5 cm)
-                </p>
-                <p>
-                  • Always measure the dominant hand (the hand that will be used
-                  to hold the device)
-                </p>
-                <p>
-                  • If there is edema (swelling), consider the hand measurements
-                  in normal state
-                </p>
-                <p>
-                  • When in doubt between two measurements, prefer the larger
-                  one to ensure comfort
-                </p>
+                <p>• {t("howToMeasure.considerations.c1")}</p>
+                <p>• {t("howToMeasure.considerations.c2")}</p>
+                <p>• {t("howToMeasure.considerations.c3")}</p>
+                <p>• {t("howToMeasure.considerations.c4")}</p>
               </div>
             </div>
           </div>
@@ -133,13 +104,13 @@ export function HowToMeasure() {
 
         <div className="bg-purple-50 rounded-2xl p-6 border border-purple-500/20 text-center">
           <p className="text-lg text-gray-700 mb-4">
-            Have questions about measurements?
+            {t("howToMeasure.questionsPrompt")}
           </p>
           <Link
             to="/faq"
             className="inline-block bg-purple-500 text-white px-6 py-3 rounded-xl hover:bg-purple-700 shadow-lg hover:shadow-xl transition-all font-semibold"
           >
-            See Frequently Asked Questions
+            {t("howToMeasure.seeFAQ")}
           </Link>
         </div>
       </div>

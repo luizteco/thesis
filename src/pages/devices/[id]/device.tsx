@@ -2,8 +2,7 @@ import {
   CustomiseObjectForm,
   type CustomiseObjectFormField,
 } from "@components/customise/customise-object-form";
-import { downloadObject, getDownloadDiagnostics } from "@components/download/download";
-import { getDownloadUrls } from "@components/download/download";
+import { downloadObject } from "@components/download/download";
 import { Preview } from "@components/object/preview";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -41,8 +40,6 @@ export function Device() {
     thickness: 2,
   });
   const [includeHandle, setIncludeHandle] = useState(true);
-  const [diagnostics, setDiagnostics] = useState<Array<{ url: string; status: string; statusCode?: number; message?: string }>>([]);
-  const [isChecking, setIsChecking] = useState(false);
 
   const handleDimensionsChange = useCallback(
     (values: Record<string, number>) => {
@@ -127,56 +124,6 @@ export function Device() {
     }
   };
 
-  const handlePreviewUrls = async () => {
-    if (!device) return;
-    try {
-      const urls = await getDownloadUrls(device.id, dimensions, {
-        productType: device.productType,
-        staticFiles: device.staticFiles,
-        variablePattern: device.variablePattern,
-        variableParts: device.variableParts,
-        prefixUrl: device.prefixUrl,
-        sizeTable: (device as any).sizeTable,
-        handleYesParts: device.handleYesParts,
-        handleNoParts: device.handleNoParts,
-        includeInstructions: device.includeInstructions,
-        handlePattern: (device as any).handlePattern,
-      }, { includeHandle });
-      alert(urls.join("\n"));
-    } catch (err: any) {
-      // eslint-disable-next-line no-console
-      console.error("Preview failed:", err);
-      alert(`Preview failed: ${err?.message ?? String(err)}`);
-    }
-  };
-
-  const handleCheckFiles = async () => {
-    if (!device) return;
-    setIsChecking(true);
-    setDiagnostics([]);
-    try {
-      const res = await getDownloadDiagnostics(device.id, dimensions, {
-        productType: device.productType,
-        staticFiles: device.staticFiles,
-        variablePattern: device.variablePattern,
-        variableParts: device.variableParts,
-        prefixUrl: device.prefixUrl,
-        sizeTable: (device as any).sizeTable,
-        handleYesParts: device.handleYesParts,
-        handleNoParts: device.handleNoParts,
-        includeInstructions: device.includeInstructions,
-        handlePattern: (device as any).handlePattern,
-      }, { includeHandle });
-      setDiagnostics(res.map((r) => ({ url: r.url, status: r.status, statusCode: r.statusCode, message: r.message })));
-    } catch (err: any) {
-      // eslint-disable-next-line no-console
-      console.error("Check failed:", err);
-      alert(`Check failed: ${err?.message ?? String(err)}`);
-    } finally {
-      setIsChecking(false);
-    }
-  };
-
   if (!device) {
     return (
       <div className="min-h-[calc(100vh-64px)] bg-linear-to-br from-gray-50 to-purple-50 flex justify-center items-center">
@@ -188,11 +135,19 @@ export function Device() {
     );
   }
 
+  const printedImages = (() => {
+    if (device.id === "bidet") return ["/preview-images/bidet.png"];
+    if (device.id === "button") return ["/preview-images/button.png"];
+    if (device.id === "cup") return ["/preview-images/cup.png", "/preview-images/cutlery.png"];
+    if (device.id === "cutlery") return ["/preview-images/cutlery.png"];
+    return [device.previewImagePath];
+  })();
+
   return (
     <div className="min-h-[calc(100vh-64px)] bg-linear-to-br from-gray-50 to-purple-50">
       <div className="max-w-7xl mx-auto px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
+          <div className="space-y-8 order-2 lg:order-1">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
               <h1 className="text-4xl font-bold text-black mb-3">
                 {device.name}
@@ -235,53 +190,45 @@ export function Device() {
                   t("device.download", { name: device.name })
                 )}
               </button>
-              <button
-                onClick={handlePreviewUrls}
-                className="mt-2 w-full px-6 py-3 bg-gray-200 text-gray-800 font-medium rounded-xl hover:bg-gray-300 shadow-sm transition-all"
-              >
-                {t("device.preview")}
-              </button>
-              <button
-                onClick={handleCheckFiles}
-                disabled={isChecking}
-                className="mt-2 w-full px-6 py-3 bg-gray-100 text-gray-800 font-medium rounded-xl hover:bg-gray-200 shadow-sm transition-all"
-              >
-                {isChecking ? t("device.checking") : t("device.checkFiles")}
-              </button>
 
-              {diagnostics.length > 0 && (
-                <div className="mt-4 bg-white p-4 rounded-lg border border-gray-200">
-                  <h3 className="font-semibold mb-2">{t("device.diagnostics")}</h3>
-                  <ul className="space-y-2">
-                    {diagnostics.map((d) => (
-                      <li key={d.url} className="flex items-start gap-3">
-                        <span
-                          className={`inline-block w-3 h-3 rounded-full ${d.status === "ok" ? "bg-green-500" : d.status === "not-found" ? "bg-red-500" : "bg-orange-400"}`}
-                        />
-                        <div>
-                          <div className="text-sm font-medium">{d.url}</div>
-                          <div className="text-xs text-gray-600">
-                            {d.status === "ok" && t("device.status.ok")}
-                            {d.status === "not-found" && `${t("device.status.notFound")} (${d.statusCode ?? ""})`}
-                            {d.status === "error" && `${t("device.status.error")} (${d.statusCode ?? ""})`}
-                            {d.status === "network" && `${t("device.status.network")} — ${d.message ?? ""}`}
-                          </div>
-                          {d.message && d.status !== "network" && (
-                            <div className="text-xs text-gray-500 mt-1">🔧 {d.message}</div>
-                          )}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {diagnostics.some((d) => d.status === "network") && (
-                    <div className="mt-3 text-sm text-orange-700">{t("device.corsHelpShort")}</div>
-                  )}
+              <div className="mt-8 space-y-4">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
+                  <button className="w-full text-left px-4 py-3 font-semibold text-black flex items-center justify-between">
+                    <span>Printing & Materials</span>
+                    <span className="text-sm text-gray-500">(scrollable)</span>
+                  </button>
+                  <div className="max-h-48 overflow-y-auto px-4 pb-4 space-y-2 text-gray-700 text-sm">
+                    <p><strong>Supports:</strong> Enable supports only where touching the build plate unless your slicer reports overhangs beyond 60°.</p>
+                    <p><strong>Filament:</strong> PLA or PETG recommended. For food contact, use food-safe PLA and a clean nozzle.</p>
+                    <p><strong>Layer height:</strong> 0.2 mm standard; 0.16 mm for smoother grip surfaces.</p>
+                    <p><strong>Wall/perimeters:</strong> 3–4 walls; infill 20–30% gyroid or grid.</p>
+                    <p><strong>Bed adhesion:</strong> Use a brim for tall parts; keep bed clean (IPA) for best adhesion.</p>
+                    <p><strong>Orientation:</strong> Place grip surfaces upward to minimize supports; keep mating faces flat on the bed.</p>
+                  </div>
                 </div>
-              )}
+
+                <div className="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
+                  <button className="w-full text-left px-4 py-3 font-semibold text-black flex items-center justify-between">
+                    <span>Printed Examples</span>
+                    <span className="text-sm text-gray-500">(scrollable)</span>
+                  </button>
+                  <div className="max-h-64 overflow-y-auto px-4 pb-4 space-y-3 text-gray-700 text-sm">
+                    <div className="grid grid-cols-1 gap-3">
+                      {printedImages.map((src) => (
+                        <img
+                          key={src}
+                          src={src}
+                          alt={`Printed example for ${device.name}`}
+                          className="w-full rounded-lg border border-gray-200 object-cover"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="h-full">
+          <div className="h-full order-1 lg:order-2">
             <Preview stlPath={device.previewStlPath} />
           </div>
         </div>

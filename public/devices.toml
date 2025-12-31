@@ -1,9 +1,9 @@
 [[device]]
-name = "Cutlery"
+name = "Cutlery thickener"
 id = "cutlery"
 previewStlPath = "/preview-models/cutlery-display.stl"
 previewImagePath = "/preview-images/cutlery.png"
-description = "Cutlery: two-piece system, body + handle/top. User can choose whether to include handle."
+description = "Grip sleeve for cutlery that thickens the handle for steadier holding."
 productType = "cutlery"
 variablePattern = "h{h}-{part}.stl"
 handlePattern = "h{h}-t{t}-handle.stl"
@@ -26,11 +26,11 @@ sizeTable = [
 ]
 
 [[device]]
-name = "Cup"
+name = "Cup stabilizer"
 id = "cup"
 previewStlPath = "/preview-models/cup-display.stl"
 previewImagePath = "/preview-images/cup.png"
-description = "Cup: three static files + one variable file depending on height and thickness."
+description = "Stabilizing sleeve for cups to improve grip and reduce spills."
 productType = "cup"
 staticFiles = ["cup-support.stl", "FlexStick.stl", "Lock.stl"]
 variablePattern = "h{h}-t{t}.stl"
@@ -38,11 +38,11 @@ variablePattern = "h{h}-t{t}.stl"
 prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
 
 [[device]]
-name = "Button"
+name = "Button Aid"
 id = "button"
 previewStlPath = "/preview-models/button-display.stl"
 previewImagePath = "/preview-images/button.png"
-description = "Button: includes a static pin and three variable parts (sa, sb, hook) depending on dimensions."
+description = "Hooked helper to pull buttons through with less effort."
 productType = "button"
 staticFiles = ["Pin.stl"]
 variablePattern = "h{h}-w{w}-{part}.stl"

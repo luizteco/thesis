@@ -22,7 +22,7 @@
     "customizeDimensions": "Personalizar Dimensões",
     "preview": "Pré-visualização",
     "width": "Largura (mm)",
-    "height": "Altura (mm)",
+    "height": "Comprimento (mm)",
     "depth": "Profundidade (mm)",
     "thickness": "Espessura (mm)",
     "includeHandle": "Incluir cabo",
@@ -102,6 +102,7 @@
   "howToMeasure": {
     "title": "Como Medir Sua Mão",
     "subtitle": "Guia simples para obter medidas precisas e personalizar seu dispositivo",
+    "tipLabel": "Dica",
     "requiredMaterials": "Materiais Necessários",
     "materials": {
       "ruler": "Régua ou fita métrica (em centímetros)",
@@ -122,9 +123,9 @@
     },
     "measurement3": {
       "badge": "Medida 3",
-      "title": "Diâmetro de Pegada",
-      "description": "Peça para a pessoa segurar um objeto cilíndrico confortavelmente (como uma garrafa ou tubo) e meça o diâmetro do objeto. Este é o diâmetro ideal de pegada para conforto.",
-      "tip": "A pegada deve ser confortável. Se houver tremores, teste diferentes diâmetros para encontrar o mais estável."
+      "title": "Espessura da Mão",
+      "description": "Meça a espessura da mão do dorso até a palma no ponto mais espesso (geralmente sobre os metacarpos). Use régua ou paquímetro e mantenha a mão relaxada — não aperte.",
+      "tip": "Faça a medição com a mão em posição natural. Se houver inchaço, prefira o valor maior para garantir conforto."
     },
     "considerations": {
       "title": "Considerações Importantes",
@@ -228,6 +229,24 @@
       "title": "Uma Nova Era de Produção",
       "description": "As impressoras 3D não são apenas ferramentas — são catalisadoras de transformação social. Ao descentralizar a produção, democratizamos o acesso, empoderamos comunidades e criamos um futuro onde a tecnologia verdadeiramente serve à humanidade.",
       "button": "Explorar Produtos"
+    }
+  },
+  "printersCards": {
+    "distributed": {
+      "title": "Manufatura Distribuída",
+      "subtitle": "O Poder Transformador da Descentralização",
+      "p1": "A impressão 3D representa uma mudança fundamental em como produzimos, distribuímos e acessamos produtos. Mais do que tecnologia, ela viabiliza a transição da manufatura centralizada para um modelo descentralizado, democrático e sustentável.",
+      "p2": "Por séculos, a produção em massa dependeu de grandes fábricas, cadeias de suprimentos complexas e distribuição global. Os produtos eram padronizados e a personalização era impossível ou muito cara. A fabricação digital distribuída inverte essa lógica: a fábrica vai até o usuário. Arquivos digitais viajam pelo mundo enquanto os objetos são produzidos localmente, sob demanda e adaptados às necessidades individuais.",
+      "p3": "A produção descentralizada coloca poder nas mãos de comunidades, escolas, bibliotecas, instituições de saúde e famílias. Ao eliminar intermediários, reduzir transporte e permitir fabricação sob demanda, esse modelo reduz custos, minimiza desperdício e permite que cada produto seja único.",
+      "p4": "O impacto dessa mudança é especialmente relevante em saúde, educação e acessibilidade. Dispositivos assistivos podem ser produzidos localmente a uma fração do custo, a educação se torna prática e experimental, e a sustentabilidade é reforçada pela redução de emissões e uso de materiais locais."
+    },
+    "decentralization": {
+      "title": "Descentralização na Prática",
+      "subtitle": "Conhecimento Aberto, Produção Local",
+      "p1": "Você não precisa ter uma impressora 3D para se beneficiar dessa transformação. Makerspaces, FabLabs, bibliotecas públicas, escolas e oficinas comunitárias oferecem acesso compartilhado às tecnologias de fabricação, enquanto comunidades online globais compartilham conhecimento de design livremente.",
+      "p2": "Este projeto é um exemplo prático desses princípios em ação. Em vez de fabricar dispositivos assistivos em fábricas e enviá-los pelo mundo, a plataforma viabiliza um Sistema Produto–Serviço Sustentável (SPSS) baseado em design aberto e produção local.",
+      "p3": "Usuários medem suas mãos, a plataforma gera um modelo 3D personalizado, e os dispositivos são produzidos localmente — em horas, não semanas. Todos os arquivos são gratuitos para baixar, modificar e adaptar.",
+      "p4": "Os modelos fornecidos aqui são otimizados para impressoras 3D FDM, a tecnologia mais comum e acessível hoje, garantindo compatibilidade com máquinas de baixo custo e espaços de fabricação compartilhados. Essa abordagem substitui a produção em massa por personalização como padrão, fortalecendo economias locais e tornando a tecnologia assistiva mais acessível, adaptável e humana."
     }
   }
 }

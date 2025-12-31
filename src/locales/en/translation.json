@@ -22,7 +22,7 @@
     "customizeDimensions": "Customize Dimensions",
     "preview": "Preview",
     "width": "Width (mm)",
-    "height": "Height (mm)",
+    "height": "Length (mm)",
     "depth": "Depth (mm)",
     "thickness": "Thickness (mm)",
     "includeHandle": "Include handle",
@@ -102,6 +102,7 @@
   "howToMeasure": {
     "title": "How to Measure Your Hand",
     "subtitle": "Simple guide to get accurate measurements and customize your device",
+    "tipLabel": "Tip",
     "requiredMaterials": "Required Materials",
     "materials": {
       "ruler": "Ruler or measuring tape (in centimeters)",
@@ -122,9 +123,9 @@
     },
     "measurement3": {
       "badge": "Measurement 3",
-      "title": "Grip Diameter",
-      "description": "Ask the person to hold a cylindrical object comfortably (such as a bottle or tube) and measure the object's diameter. This is the ideal grip for comfort.",
-      "tip": "The grip should be comfortable. If there are tremors, test different diameters to find the most stable one."
+      "title": "Hand Thickness",
+      "description": "Measure the hand thickness from the back of the hand to the palm at its thickest point (usually across the metacarpals). Use a ruler or caliper and keep the hand relaxed—do not squeeze.",
+      "tip": "Take the measurement with the hand in a natural position. If there is swelling, prefer the larger value for comfort."
     },
     "considerations": {
       "title": "Important Considerations",
@@ -228,6 +229,24 @@
       "title": "A New Era of Production",
       "description": "3D printers are not just tools — they are catalysts for social transformation. By decentralizing production, we democratize access, empower communities, and create a future where technology truly serves humanity.",
       "button": "Explore Products"
+    }
+  },
+  "printersCards": {
+    "distributed": {
+      "title": "Distributed Manufacturing",
+      "subtitle": "The Transformative Power of Decentralization",
+      "p1": "3D printing represents a fundamental shift in how we produce, distribute, and access products. More than a technology, it enables a move from centralized manufacturing to a decentralized, democratic, and sustainable model of production.",
+      "p2": "For centuries, mass production relied on large factories, complex supply chains, and global distribution. Products were standardized and personalization was either impossible or prohibitively expensive. Distributed digital fabrication reverses this logic: the factory comes to the user, not the other way around. Digital files travel globally, while objects are produced locally, on demand, and adapted to individual needs.",
+      "p3": "Decentralized production places power in the hands of communities, schools, libraries, healthcare institutions, and families. By eliminating intermediaries, reducing transportation, and enabling on-demand manufacturing, this model lowers costs, minimizes waste, and allows each product to be uniquely customized.",
+      "p4": "The impact of this shift is especially significant in healthcare, education, and accessibility. Assistive devices can be produced locally at a fraction of traditional costs, education becomes hands-on and experimental, and sustainability is reinforced through reduced emissions and local material use."
+    },
+    "decentralization": {
+      "title": "Decentralization in Practice",
+      "subtitle": "Open Knowledge, Local Production",
+      "p1": "You don’t need to own a 3D printer to benefit from this transformation. Makerspaces, FabLabs, public libraries, schools, and community workshops provide shared access to fabrication technologies, while global online communities freely share design knowledge.",
+      "p2": "This project is a practical example of these principles in action. Instead of manufacturing assistive devices in centralized factories and shipping them worldwide, the platform enables a Sustainable Product–Service System (SPSS) based on open-source design and local production.",
+      "p3": "Users measure their hands, the platform generates a personalized 3D model, and devices are produced locally—in hours, not weeks. All files are free to download, modify, and adapt.",
+      "p4": "The designs provided on this platform are optimized for FDM 3D printers, the most common and affordable printing technology available today, ensuring broad compatibility with low-cost machines and shared fabrication spaces. This approach replaces mass production with personalization by default, strengthening local economies while making assistive technology more accessible, adaptable, and human."
     }
   }
 }
