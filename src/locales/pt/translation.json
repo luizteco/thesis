@@ -5,6 +5,7 @@
     "howToMeasure": "Como Medir",
     "printers": "Impressão 3D",
     "faq": "Perguntas Frequentes",
+    "requestProduct": "Solicitar Produto",
     "back": "Voltar"
   },
   "welcome": {
@@ -248,5 +249,17 @@
       "p3": "Usuários medem suas mãos, a plataforma gera um modelo 3D personalizado, e os dispositivos são produzidos localmente — em horas, não semanas. Todos os arquivos são gratuitos para baixar, modificar e adaptar.",
       "p4": "Os modelos fornecidos aqui são otimizados para impressoras 3D FDM, a tecnologia mais comum e acessível hoje, garantindo compatibilidade com máquinas de baixo custo e espaços de fabricação compartilhados. Essa abordagem substitui a produção em massa por personalização como padrão, fortalecendo economias locais e tornando a tecnologia assistiva mais acessível, adaptável e humana."
     }
+  },
+  "requestProduct": {
+    "title": "Não encontrou o produto que procura?",
+    "subtitle": "Compartilhe sua ideia de produto com nossa comunidade. Vote nas solicitações que você gostaria de ver desenvolvidas!",
+    "productName": "Nome do Produto",
+    "namePlaceholder": "Ex: Pegadeira antideslizante para talher",
+    "description": "Descreva o produto que gostaria de ver",
+    "descriptionPlaceholder": "Diga-nos o que este produto deve fazer, qual problema resolveria, e quaisquer requisitos ou funcionalidades específicas que você tenha em mente...",
+    "submit": "Enviar Solicitação",
+    "submitted": "Obrigado! Sua solicitação foi enviada. Membros da comunidade podem votar nela!",
+    "requests": "Solicitações de Produtos",
+    "noRequests": "Nenhuma solicitação de produto ainda. Seja o primeiro a sugerir algo!"
   }
 }
