@@ -7,8 +7,21 @@ interface ProductRequest {
   description: string;
   timestamp: number;
   likes: number;
-  userLiked: boolean;
+  userLiked?: boolean;
 }
+
+// Get or create a persistent client ID
+function getClientId(): string {
+  const key = "thesis_client_id";
+  let clientId = localStorage.getItem(key);
+  if (!clientId) {
+    clientId = `client_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    localStorage.setItem(key, clientId);
+  }
+  return clientId;
+}
+
+const API_BASE = import.meta.env.DEV ? "http://localhost:3001" : "/api";
 
 function ProductRequestCard({
   request,
@@ -62,79 +75,100 @@ export function RequestProduct() {
   const [requests, setRequests] = useState<ProductRequest[]>([]);
   const [formData, setFormData] = useState({ name: "", description: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const clientId = getClientId();
 
-  const storageKey = "productRequests";
-  const likedKey = "productRequestsLiked";
+  // Fetch all requests from server
+  const fetchRequests = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`${API_BASE}/api/requests`);
+      if (!response.ok) throw new Error("Failed to fetch requests");
 
-  // Load requests from localStorage
-  useEffect(() => {
-    const stored = localStorage.getItem(storageKey);
-    const likedIds = new Set(
-      JSON.parse(localStorage.getItem(likedKey) || "[]") as string[]
-    );
+      const data = await response.json();
 
-    if (stored) {
-      const parsed = JSON.parse(stored) as ProductRequest[];
-      const withLikeStatus = parsed.map((req) => ({
-        ...req,
-        userLiked: likedIds.has(req.id),
-      }));
-      setRequests(
-        withLikeStatus.sort((a, b) => b.likes - a.likes || b.timestamp - a.timestamp)
+      // Check which requests the user has liked
+      const requestsWithLikeStatus = await Promise.all(
+        data.map(async (req: ProductRequest) => {
+          const likeResponse = await fetch(
+            `${API_BASE}/api/requests/${req.id}/likes/${clientId}`
+          );
+          const likeData = await likeResponse.json();
+          return { ...req, userLiked: likeData.userLiked };
+        })
       );
-    }
-  }, []);
 
-  // Save requests to localStorage
-  const saveRequests = (updatedRequests: ProductRequest[]) => {
-    localStorage.setItem(storageKey, JSON.stringify(updatedRequests));
-    setRequests(updatedRequests.sort((a, b) => b.likes - a.likes || b.timestamp - a.timestamp));
+      setRequests(requestsWithLikeStatus);
+      setError(null);
+    } catch (err) {
+      setError("Failed to load requests. Make sure the server is running.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    fetchRequests();
+    // Refresh requests every 10 seconds to see updates from other users
+    const interval = setInterval(fetchRequests, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.name.trim() || !formData.description.trim()) {
       return;
     }
 
-    const newRequest: ProductRequest = {
-      id: Date.now().toString(),
-      name: formData.name,
-      description: formData.description,
-      timestamp: Date.now(),
-      likes: 0,
-      userLiked: false,
-    };
+    try {
+      const response = await fetch(`${API_BASE}/api/requests`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          description: formData.description,
+        }),
+      });
 
-    const updatedRequests = [newRequest, ...requests];
-    saveRequests(updatedRequests);
+      if (!response.ok) throw new Error("Failed to create request");
 
-    setFormData({ name: "", description: "" });
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+      const newRequest = await response.json();
+      setRequests([{ ...newRequest, userLiked: false }, ...requests]);
+      setFormData({ name: "", description: "" });
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (err) {
+      setError("Failed to submit request. Make sure the server is running.");
+      console.error(err);
+    }
   };
 
-  const handleLike = (id: string) => {
-    const likedIds = new Set(
-      JSON.parse(localStorage.getItem(likedKey) || "[]") as string[]
-    );
+  const handleLike = async (id: string) => {
+    try {
+      const response = await fetch(`${API_BASE}/api/requests/${id}/like`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ requestId: id, clientId }),
+      });
 
-    const updatedRequests = requests.map((req) => {
-      if (req.id === id) {
-        if (req.userLiked) {
-          likedIds.delete(id);
-          return { ...req, likes: Math.max(0, req.likes - 1), userLiked: false };
-        } else {
-          likedIds.add(id);
-          return { ...req, likes: req.likes + 1, userLiked: true };
-        }
-      }
-      return req;
-    });
+      if (!response.ok) throw new Error("Failed to update like");
 
-    localStorage.setItem(likedKey, JSON.stringify(Array.from(likedIds)));
-    saveRequests(updatedRequests);
+      const { likes, userLiked } = await response.json();
+
+      setRequests(
+        requests
+          .map((req) =>
+            req.id === id ? { ...req, likes, userLiked } : req
+          )
+          .sort((a, b) => b.likes - a.likes || b.timestamp - a.timestamp)
+      );
+    } catch (err) {
+      setError("Failed to like request. Make sure the server is running.");
+      console.error(err);
+    }
   };
 
   return (
@@ -149,6 +183,13 @@ export function RequestProduct() {
             {t("requestProduct.subtitle")}
           </p>
         </div>
+
+        {/* Error Message */}
+        {error && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+            {error}
+          </div>
+        )}
 
         {/* Form */}
         <div className="bg-white rounded-lg shadow-md p-8 mb-12">
@@ -204,7 +245,11 @@ export function RequestProduct() {
             {t("requestProduct.requests")} ({requests.length})
           </h2>
 
-          {requests.length === 0 ? (
+          {loading ? (
+            <div className="text-center py-12">
+              <p className="text-gray-600 text-lg">Loading requests...</p>
+            </div>
+          ) : requests.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-600 text-lg">
                 {t("requestProduct.noRequests")}
