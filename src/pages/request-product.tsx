@@ -21,7 +21,9 @@ function getClientId(): string {
   return clientId;
 }
 
-const API_BASE = import.meta.env.DEV ? "http://localhost:3001" : "/api";
+const API_BASE = import.meta.env.DEV 
+  ? "http://localhost:3001" 
+  : "https://thesis-backend-0dzz.onrender.com";
 
 function ProductRequestCard({
   request,
