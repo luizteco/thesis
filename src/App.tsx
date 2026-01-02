@@ -4,6 +4,7 @@ import { Device } from "@pages/devices/[id]/device";
 import { FAQ } from "@pages/faq";
 import { HowToMeasure } from "@pages/how-to-measure";
 import { Printers } from "@pages/printers";
+import { PrintingServices } from "@pages/printing-services";
 import { RequestProduct } from "@pages/request-product";
 import { Welcome } from "@pages/welcome";
 import { useTranslation } from "react-i18next";
@@ -65,6 +66,9 @@ function Navigation() {
         <Link className={getLinkClassName("/faq")} to="/faq">
           {t("nav.faq")}
         </Link>
+        <Link className={getLinkClassName("/printing-services")} to="/printing-services">
+          {t("nav.printingServices")}
+        </Link>
         <Link className={getLinkClassName("/request-product")} to="/request-product">
           {t("nav.requestProduct")}
         </Link>
@@ -93,6 +97,7 @@ function App() {
         <Route path="/how-to-measure" element={<HowToMeasure />} />
         <Route path="/about" element={<About />} />
         <Route path="/printers" element={<Printers />} />
+        <Route path="/printing-services" element={<PrintingServices />} />
         <Route path="/request-product" element={<RequestProduct />} />
       </Routes>
     </BrowserRouter>

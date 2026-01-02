@@ -12,13 +12,17 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Data file path
+// Data file paths
 const dataFile = path.join(__dirname, "requests-data.json");
+const servicesFile = path.join(__dirname, "printing-services.json");
 
 // Initialize data file if it doesn't exist
 function initializeDataFile() {
   if (!fs.existsSync(dataFile)) {
     fs.writeFileSync(dataFile, JSON.stringify({ requests: {}, likes: {} }));
+  }
+  if (!fs.existsSync(servicesFile)) {
+    fs.writeFileSync(servicesFile, JSON.stringify({ services: {} }));
   }
 }
 
@@ -35,6 +39,21 @@ function readRequests() {
 // Write requests to file
 function writeRequests(data) {
   fs.writeFileSync(dataFile, JSON.stringify(data, null, 2));
+}
+
+// Read all printing services
+function readServices() {
+  try {
+    const data = fs.readFileSync(servicesFile, "utf-8");
+    return JSON.parse(data);
+  } catch {
+    return { services: {} };
+  }
+}
+
+// Write printing services to file
+function writeServices(data) {
+  fs.writeFileSync(servicesFile, JSON.stringify(data, null, 2));
 }
 
 // GET /api/requests - Get all product requests
@@ -118,6 +137,48 @@ app.get("/api/requests/:id/likes/:clientId", (req, res) => {
   const userLiked = !!(data.likes && data.likes[likeKey]);
 
   res.json({ userLiked });
+});
+
+// GET /api/printing-services - Get all printing services
+app.get("/api/printing-services", (req, res) => {
+  const data = readServices();
+  const services = Object.values(data.services || {}).sort(
+    (a, b) => b.timestamp - a.timestamp
+  );
+  res.json(services);
+});
+
+// POST /api/printing-services - Register a new printing service
+app.post("/api/printing-services", (req, res) => {
+  const { name, postalCode, printers, hourlyRate, email } = req.body;
+
+  if (!name || !postalCode || !printers || !hourlyRate || !email) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
+
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: "Invalid email format" });
+  }
+
+  const data = readServices();
+  const id = Date.now().toString();
+
+  const newService = {
+    id,
+    name: name.trim(),
+    postalCode: postalCode.trim(),
+    printers: printers.trim(),
+    hourlyRate: hourlyRate.trim(),
+    email: email.trim(),
+    timestamp: Date.now(),
+  };
+
+  data.services[id] = newService;
+  writeServices(data);
+
+  res.status(201).json(newService);
 });
 
 initializeDataFile();
