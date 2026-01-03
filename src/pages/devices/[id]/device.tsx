@@ -138,7 +138,7 @@ export function Device() {
   const printedImages = (() => {
     if (device.id === "bidet") return ["/preview-images/bidet.png"];
     if (device.id === "button") return ["/preview-images/button.png"];
-    if (device.id === "cup") return ["/preview-images/cup.png", "/preview-images/cutlery.png"];
+    if (device.id === "cup") return ["/preview-images/cup.png"];
     if (device.id === "cutlery") return ["/preview-images/cutlery.png"];
     return [device.previewImagePath];
   })();
