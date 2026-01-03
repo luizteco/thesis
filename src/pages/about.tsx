@@ -93,14 +93,3 @@ function Section({ title, children, icon }: { title: string; children: React.Rea
     </div>
   );
 }
-
-function ListItem({ title, body }: { title: string; body: string }) {
-  return (
-    <li className="flex items-start gap-3">
-      <span className="text-purple-500 mt-1">•</span>
-      <span>
-        <strong className="text-black">{title}:</strong> {body}
-      </span>
-    </li>
-  );
-}
