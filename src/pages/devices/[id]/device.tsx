@@ -40,6 +40,8 @@ export function Device() {
     thickness: 2,
   });
   const [includeHandle, setIncludeHandle] = useState(true);
+  const [viewerOpen, setViewerOpen] = useState(false);
+  const [viewerIndex, setViewerIndex] = useState(0);
 
   const handleDimensionsChange = useCallback(
     (values: Record<string, number>) => {
@@ -143,6 +145,21 @@ export function Device() {
     return [device.previewImagePath];
   })();
 
+  const openViewer = (index: number) => {
+    setViewerIndex(index);
+    setViewerOpen(true);
+  };
+
+  const closeViewer = () => setViewerOpen(false);
+
+  const nextImage = () => {
+    setViewerIndex((prev) => (prev + 1) % printedImages.length);
+  };
+
+  const prevImage = () => {
+    setViewerIndex((prev) => (prev - 1 + printedImages.length) % printedImages.length);
+  };
+
   return (
     <div className="min-h-[calc(100vh-64px)] bg-linear-to-br from-gray-50 to-purple-50">
       <div className="max-w-7xl mx-auto px-8 py-12">
@@ -194,6 +211,24 @@ export function Device() {
               <div className="mt-8 space-y-4">
                 <div className="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
                   <button className="w-full text-left px-4 py-3 font-semibold text-black flex items-center justify-between">
+                    <span>Printed Examples</span>
+                    <span className="text-sm text-gray-500">(click to view)</span>
+                  </button>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4">
+                    {printedImages.map((src, idx) => (
+                      <img
+                        key={src}
+                        src={src}
+                        alt={`Printed example for ${device.name}`}
+                        className="w-full rounded-lg border border-gray-200 object-cover cursor-pointer hover:shadow-lg transition-shadow"
+                        onClick={() => openViewer(idx)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
+                  <button className="w-full text-left px-4 py-3 font-semibold text-black flex items-center justify-between">
                     <span>Printing & Materials</span>
                     <span className="text-sm text-gray-500">(scrollable)</span>
                   </button>
@@ -206,25 +241,6 @@ export function Device() {
                     <p><strong>Orientation:</strong> Place grip surfaces upward to minimize supports; keep mating faces flat on the bed.</p>
                   </div>
                 </div>
-
-                <div className="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
-                  <button className="w-full text-left px-4 py-3 font-semibold text-black flex items-center justify-between">
-                    <span>Printed Examples</span>
-                    <span className="text-sm text-gray-500">(scrollable)</span>
-                  </button>
-                  <div className="max-h-64 overflow-y-auto px-4 pb-4 space-y-3 text-gray-700 text-sm">
-                    <div className="grid grid-cols-1 gap-3">
-                      {printedImages.map((src) => (
-                        <img
-                          key={src}
-                          src={src}
-                          alt={`Printed example for ${device.name}`}
-                          className="w-full rounded-lg border border-gray-200 object-cover"
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -233,6 +249,50 @@ export function Device() {
           </div>
         </div>
       </div>
+      {viewerOpen && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex flex-col items-center justify-center px-4">
+          <div className="relative max-w-5xl w-full">
+            <button
+              onClick={closeViewer}
+              className="absolute -top-10 right-0 text-white text-lg font-semibold px-3 py-1 rounded-full bg-white/20 hover:bg-white/30"
+            >
+              Close
+            </button>
+            <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+              <img
+                src={printedImages[viewerIndex]}
+                alt={`Printed example ${viewerIndex + 1}`}
+                className="w-full h-[70vh] object-contain bg-black"
+              />
+              {printedImages.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-black rounded-full p-3 shadow"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-black rounded-full p-3 shadow"
+                  >
+                    ›
+                  </button>
+                </>
+              )}
+            </div>
+            <div className="mt-4 flex justify-center gap-2 text-white text-sm">
+              {printedImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setViewerIndex(idx)}
+                  className={`h-2 w-2 rounded-full ${idx === viewerIndex ? "bg-white" : "bg-white/40"}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
