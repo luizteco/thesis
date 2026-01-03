@@ -15,7 +15,7 @@ function STLModel({ url }: { url: string }) {
   const meshRef = useRef<Mesh>(null);
 
   return (
-    <mesh ref={meshRef} geometry={geometry} castShadow receiveShadow position={[0, 20, 0]}>
+    <mesh ref={meshRef} geometry={geometry} castShadow receiveShadow position={[0, 80, 0]}>
       <meshStandardMaterial 
         color="#8b5cf6"
         metalness={0.3}
