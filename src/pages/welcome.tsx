@@ -16,9 +16,10 @@ export function Welcome() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/35 to-black/50" />
       
-      {/* Animated gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      {/* Subtle animated gradient orbs - spaced far apart */}
+      <div className="absolute -top-40 -left-40 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl opacity-30" style={{ animation: 'float 8s ease-in-out infinite' }}></div>
+      <div className="absolute top-1/3 -right-32 w-64 h-64 bg-blue-400/10 rounded-full blur-2xl opacity-20" style={{ animation: 'float 10s ease-in-out infinite 1s' }}></div>
+      <div className="absolute -bottom-32 left-1/3 w-72 h-72 bg-purple-300/5 rounded-full blur-3xl opacity-15" style={{ animation: 'float 12s ease-in-out infinite 2s' }}></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-8 py-14 min-h-[90vh] flex flex-col justify-between items-center">
         <div className="text-center space-y-6 text-white drop-shadow-2xl pt-8 animate-fade-in">
@@ -32,7 +33,7 @@ export function Welcome() {
         <div className="pb-16 stagger-2 animate-fade-in" style={{ opacity: 0 }}>
           <Link
             to="/devices"
-            className="btn-glow group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-purple-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            className="btn-glow group inline-flex items-center gap-2 px-8 py-4 bg-purple-500 text-white font-semibold rounded-xl hover:bg-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             {t("welcome.exploreProducts")}
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
