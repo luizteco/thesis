@@ -18,6 +18,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 
 function Navigation() {
   const location = useLocation();
@@ -199,6 +200,7 @@ function App() {
         <Route path="/printing-services" element={<PrintingServices />} />
         <Route path="/request-product" element={<RequestProduct />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }
