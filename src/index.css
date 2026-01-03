@@ -61,6 +61,31 @@ button:active {
   }
 }
 
+/* Card hover bounce animation - like After Effects ease */
+@keyframes cardHoverBounce {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes cardHoverOut {
+  0% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* Glassmorphism effect */
 .glass {
   background: rgba(255, 255, 255, 0.75);
@@ -91,6 +116,19 @@ button:active {
 .btn-glow:hover::before {
   width: 300px;
   height: 300px;
+}
+
+/* Card hover animation with ease in/out bounce */
+.card-hover {
+  transition: box-shadow 1.5s cubic-bezier(0.4, 0, 0.2, 1), border-color 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  animation: cardHoverBounce 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.card-hover:not(:hover) {
+  animation: cardHoverOut 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* Image loading blur effect */

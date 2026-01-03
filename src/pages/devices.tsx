@@ -29,7 +29,7 @@ export function Devices() {
               className="group animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
             >
-              <div className="h-full bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-1000 ease-out overflow-hidden border border-gray-200 hover:border-purple-400 relative flex flex-col hover:-translate-y-2">
+              <div className="card-hover h-full bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden border border-gray-200 hover:border-purple-400 relative flex flex-col">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/0 group-hover:from-purple-500/5 group-hover:to-purple-500/10 transition-all duration-1000 ease-out pointer-events-none z-10"></div>
                 <div className="aspect-square overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 relative flex-shrink-0">
                   <img
