@@ -19,6 +19,7 @@ function STLModel({ url, productId }: { url: string; productId?: string }) {
   let yPosition = 80; // default
   if (productId === "cup") yPosition = 60; // down 20 units
   if (productId === "bidet") yPosition = 20; // down 60 units
+  if (productId === "button") yPosition = 40; // down 40 units
 
   return (
     <mesh ref={meshRef} geometry={geometry} castShadow receiveShadow position={[0, yPosition, 0]}>
