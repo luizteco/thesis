@@ -74,7 +74,7 @@ function Navigation() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-6">
           {mainNavLinks.map((link) => (
             link.path !== "/" && (
               <Link key={link.path} className={getLinkClassName(link.path)} to={link.path}>
@@ -107,7 +107,7 @@ function Navigation() {
 
           <button
             onClick={toggleLanguage}
-            className="ml-2 px-4 py-2 text-sm font-semibold text-purple-500 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
+            className="px-4 py-2 text-sm font-semibold text-purple-500 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
           >
             {i18n.language === "en" ? "PT" : "EN"}
           </button>
