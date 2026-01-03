@@ -145,8 +145,8 @@ export function Device() {
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-linear-to-br from-gray-50 to-purple-50">
-      <div className="max-w-7xl mx-auto px-8 py-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8 order-2 lg:order-1">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
               <h1 className="text-4xl font-bold text-black mb-3">
