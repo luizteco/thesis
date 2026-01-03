@@ -30,7 +30,7 @@ export function Welcome() {
             {t("welcome.subtitle")}
           </p>
         </div>
-        <div className="pb-16 stagger-2 animate-fade-in mt-12" style={{ opacity: 0 }}>
+        <div className="pb-16 stagger-2 animate-fade-in mt-24" style={{ opacity: 0 }}>
           <Link
             to="/devices"
             className="btn-glow group inline-flex items-center gap-2 px-8 py-4 bg-purple-500 text-white font-semibold rounded-xl hover:bg-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
