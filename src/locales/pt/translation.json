@@ -17,7 +17,23 @@
   "devices": {
     "title": "Nossos Produtos",
     "subtitle": "Cada dispositivo é projetado para proporcionar autonomia e conforto no dia a dia",
-    "loading": "Carregando dispositivos..."
+    "loading": "Carregando dispositivos...",
+    "cutlery": {
+      "name": "Engrossador de talheres",
+      "description": "Manga de aperto para talheres que engrossa o cabo para segurar com mais firmeza."
+    },
+    "cup": {
+      "name": "Estabilizador de copo",
+      "description": "Manga estabilizadora para copos que melhora a pegada e reduz derramamentos."
+    },
+    "button": {
+      "name": "Auxiliar de botões",
+      "description": "Gancho auxiliar para puxar botões com menos esforço."
+    },
+    "bidet": {
+      "name": "Bidê",
+      "description": "Acessório de bidê portátil para restaurar a autonomia e privacidade na higiene pessoal."
+    }
   },
   "device": {
     "loading": "Carregando dispositivo, ou não foi encontrado...",

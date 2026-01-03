@@ -17,7 +17,23 @@
   "devices": {
     "title": "Our Products",
     "subtitle": "Each device is designed to provide autonomy and comfort in daily life",
-    "loading": "Loading devices..."
+    "loading": "Loading devices...",
+    "cutlery": {
+      "name": "Cutlery thickener",
+      "description": "Grip sleeve for cutlery that thickens the handle for steadier holding."
+    },
+    "cup": {
+      "name": "Cup stabilizer",
+      "description": "Stabilizing sleeve for cups to improve grip and reduce spills."
+    },
+    "button": {
+      "name": "Button Aid",
+      "description": "Hooked helper to pull buttons through with less effort."
+    },
+    "bidet": {
+      "name": "Bidet",
+      "description": "Portable bidet attachment to restore autonomy and privacy in personal hygiene."
+    }
   },
   "device": {
     "loading": "Loading device, or it could not be found...",
