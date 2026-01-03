@@ -5,7 +5,7 @@ export function Welcome() {
   const { t } = useTranslation();
 
   return (
-    <div className="relative min-h-[calc(100vh-64px)] bg-gradient-to-br from-gray-50 via-purple-50 to-gray-50 overflow-hidden">
+    <div className="relative min-h-[100vh] bg-gradient-to-br from-gray-50 via-purple-50 to-gray-50 overflow-hidden">
       <div
         className="absolute inset-0 transition-opacity duration-700"
         style={{
@@ -21,24 +21,21 @@ export function Welcome() {
       <div className="absolute top-1/3 -right-32 w-64 h-64 bg-blue-400/10 rounded-full blur-2xl opacity-20" style={{ animation: 'float 10s ease-in-out infinite 1s' }}></div>
       <div className="absolute -bottom-32 left-1/3 w-72 h-72 bg-purple-300/5 rounded-full blur-3xl opacity-15" style={{ animation: 'float 12s ease-in-out infinite 2s' }}></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-8 py-14 min-h-[90vh] flex flex-col justify-between items-center">
-        <div className="text-center space-y-6 text-white drop-shadow-2xl pt-8 animate-fade-in">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-8 py-16 min-h-screen flex flex-col justify-center items-center">
+        <div className="text-center space-y-6 text-white drop-shadow-2xl animate-fade-in">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
             {t("welcome.title")}
           </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto font-light leading-relaxed stagger-1 animate-fade-in" style={{ opacity: 0 }}>
+          <p className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto font-medium leading-relaxed stagger-1 animate-fade-in" style={{ opacity: 0 }}>
             {t("welcome.subtitle")}
           </p>
         </div>
-        <div className="pb-16 stagger-2 animate-fade-in" style={{ opacity: 0 }}>
+        <div className="pb-16 stagger-2 animate-fade-in mt-12" style={{ opacity: 0 }}>
           <Link
             to="/devices"
             className="btn-glow group inline-flex items-center gap-2 px-8 py-4 bg-purple-500 text-white font-semibold rounded-xl hover:bg-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             {t("welcome.exploreProducts")}
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
           </Link>
         </div>
       </div>
