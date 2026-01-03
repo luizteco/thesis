@@ -155,14 +155,14 @@ export function PrintingServices() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <main className="min-h-screen bg-gray-50 py-8 sm:py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             {t("printingServices.title")}
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             {t("printingServices.subtitle")}
           </p>
         </div>
@@ -182,31 +182,33 @@ export function PrintingServices() {
         )}
 
         {/* Search Bar */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <div className="flex gap-4">
+        <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-8">
+          <div className="flex flex-col sm:flex-row gap-3">
             <input
               type="text"
               value={searchPostalCode}
               onChange={(e) => setSearchPostalCode(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSearch()}
               placeholder={t("printingServices.searchPlaceholder")}
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base"
             />
-            <button
-              onClick={handleSearch}
-              className="px-6 py-2 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
-            >
-              {t("printingServices.search")}
-            </button>
-            <button
-              onClick={() => {
-                setSearchPostalCode("");
-                setFilteredServices(services);
-              }}
-              className="px-6 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-colors"
-            >
-              {t("printingServices.clear")}
-            </button>
+            <div className="flex gap-3">
+              <button
+                onClick={handleSearch}
+                className="flex-1 sm:flex-none px-6 py-2.5 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors whitespace-nowrap"
+              >
+                {t("printingServices.search")}
+              </button>
+              <button
+                onClick={() => {
+                  setSearchPostalCode("");
+                  setFilteredServices(services);
+                }}
+                className="flex-1 sm:flex-none px-6 py-2.5 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-colors whitespace-nowrap"
+              >
+                {t("printingServices.clear")}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -214,7 +216,7 @@ export function PrintingServices() {
         <div className="mb-8">
           <button
             onClick={() => setShowForm(!showForm)}
-            className="bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors"
+            className="w-full sm:w-auto bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors text-center"
           >
             {showForm ? t("printingServices.hideForm") : t("printingServices.registerService")}
           </button>
@@ -222,8 +224,8 @@ export function PrintingServices() {
 
         {/* Registration Form */}
         {showForm && (
-          <div className="bg-white rounded-lg shadow-md p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="bg-white rounded-lg shadow-md p-4 sm:p-8 mb-8 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
               {t("printingServices.registerTitle")}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -248,7 +250,7 @@ export function PrintingServices() {
                   type="text"
                   value={formData.postalCode}
                   onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
-                  placeholder="50670 or 12345-678"
+                  placeholder="12345 or 12345-678"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
               </div>
@@ -304,7 +306,7 @@ export function PrintingServices() {
 
         {/* Services List */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
             {searchPostalCode 
               ? `${t("printingServices.servicesNear")} ${searchPostalCode} (${filteredServices.length})`
               : `${t("printingServices.allServices")} (${filteredServices.length})`
