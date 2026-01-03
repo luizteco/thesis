@@ -150,9 +150,9 @@ export function Device() {
           <div className="space-y-8 order-2 lg:order-1">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
               <h1 className="text-4xl font-bold text-black mb-3">
-                {t(`devices.${device.id}.name`, device.name)}
+                {t(`devices.${device.id}.name`, { defaultValue: device.name })}
               </h1>
-              <p className="text-lg text-gray-700">{t(`devices.${device.id}.description`, device.description)}</p>
+              <p className="text-lg text-gray-700">{t(`devices.${device.id}.description`, { defaultValue: device.description })}</p>
 
               {CustomiseObjectFormFields.length > 0 ? (
                 <>

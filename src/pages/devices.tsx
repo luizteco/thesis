@@ -42,10 +42,10 @@ export function Devices() {
                 </div>
                 <div className="p-6">
                   <h2 className="text-xl font-bold text-black group-hover:text-purple-500 transition-colors">
-                    {t(`devices.${device.id}.name`, device.name)}
+                    {t(`devices.${device.id}.name`, { defaultValue: device.name })}
                   </h2>
                   <p className="text-sm text-gray-700 mt-2 line-clamp-2">
-                    {t(`devices.${device.id}.description`, device.description)}
+                    {t(`devices.${device.id}.description`, { defaultValue: device.description })}
                   </p>
                 </div>
               </div>
