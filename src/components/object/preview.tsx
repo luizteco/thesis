@@ -8,14 +8,20 @@ export type PreviewProps = {
   stlPath: string;
   isInteractive?: boolean;
   animate?: boolean;
+  productId?: string;
 };
 
-function STLModel({ url }: { url: string }) {
+function STLModel({ url, productId }: { url: string; productId?: string }) {
   const geometry = useLoader(STLLoader, url);
   const meshRef = useRef<Mesh>(null);
 
+  // Adjust Y position based on product type
+  let yPosition = 80; // default
+  if (productId === "cup") yPosition = 60; // down 20 units
+  if (productId === "bidet") yPosition = 20; // down 60 units
+
   return (
-    <mesh ref={meshRef} geometry={geometry} castShadow receiveShadow position={[0, 80, 0]}>
+    <mesh ref={meshRef} geometry={geometry} castShadow receiveShadow position={[0, yPosition, 0]}>
       <meshStandardMaterial 
         color="#8b5cf6"
         metalness={0.3}
@@ -30,6 +36,7 @@ export function Preview({
   stlPath,
   isInteractive = true,
   animate = true,
+  productId,
 }: PreviewProps) {
   return (
     <div className="h-full bg-gradient-to-br from-purple-50 to-blue-50">
@@ -66,7 +73,7 @@ export function Preview({
         {/* Studio environment for reflections */}
         <Environment preset="studio" />
         
-        <STLModel url={stlPath} />
+        <STLModel url={stlPath} productId={productId} />
         
         {/* Contact shadows for grounding */}
         <ContactShadows

@@ -229,7 +229,7 @@ export function Device() {
             </div>
           </div>
           <div className="h-full order-1 lg:order-2">
-            <Preview stlPath={device.previewStlPath} />
+            <Preview stlPath={device.previewStlPath} productId={device.id} />
           </div>
         </div>
       </div>
