@@ -34,7 +34,7 @@ export function Preview({
   return (
     <div className="h-full bg-gradient-to-br from-purple-50 to-blue-50">
       <Canvas
-        camera={{ position: [0, 0, 200], fov: 25 }}
+        camera={{ position: [0, 0, 650], fov: 25 }}
         shadows
         gl={{ antialias: true, alpha: true }}
       >
