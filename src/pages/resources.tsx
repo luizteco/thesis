@@ -46,20 +46,25 @@ export function Resources() {
 
         {/* Resource Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {resourceCards.map((card) => (
+          {resourceCards.map((card, index) => (
             <Link
               key={card.path}
               to={card.path}
-              className="group bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl hover:border-purple-300 transition-all"
+              className="group bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-2xl hover:border-purple-400 transition-all duration-300 hover-lift animate-fade-in"
+              style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
             >
-              <div className="p-6 sm:p-8 h-full flex flex-col">
-                <div className="text-5xl mb-4">{card.icon}</div>
-                <h2 className="text-2xl font-bold text-black mb-3 group-hover:text-purple-700 transition-colors">
+              <div className="p-6 sm:p-8 h-full flex flex-col relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/0 group-hover:from-purple-500/5 group-hover:to-purple-500/10 transition-all duration-300"></div>
+                <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300 relative z-10">{card.icon}</div>
+                <h2 className="text-2xl font-bold text-black mb-3 group-hover:text-purple-700 transition-colors relative z-10">
                   {card.title}
                 </h2>
-                <p className="text-gray-700 flex-1">{card.description}</p>
-                <div className="mt-6 inline-flex items-center text-purple-600 font-semibold group-hover:text-purple-700">
-                  Learn more →
+                <p className="text-gray-700 flex-1 leading-relaxed relative z-10">{card.description}</p>
+                <div className="mt-6 inline-flex items-center gap-1 text-purple-600 font-semibold group-hover:text-purple-700 relative z-10">
+                  Learn more
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
               </div>
             </Link>

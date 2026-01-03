@@ -56,7 +56,7 @@ function Navigation() {
   ];
 
   return (
-    <nav className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
+    <nav className="sticky top-0 glass border-b border-gray-200/50 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Back button + Logo/Home link */}
         <div className="flex items-center gap-3">
