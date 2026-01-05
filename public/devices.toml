@@ -11,7 +11,7 @@ handleYesParts = ["body", "handle"]
 handleNoParts = ["body", "top"]
 staticFiles = ["spring.stl"]
 prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
-previewImages = ["/preview-images/PE-cutlery-bed.png"]
+previewImages = ["/preview-images/PE-Cutlery-11767619227.png", "/preview-images/PE-Cutlery-21767619232.png", "/preview-images/PE-cutlery-bed.png", "/preview-images/PE-Cutlery.mp4"]
 sampleDims = { height = 197, thickness = 28 }
 # sizeTable for cutlery (HL -> widths narrow/med/wide and thickness t)
 sizeTable = [
@@ -36,7 +36,7 @@ description = "Stabilizing sleeve for cups to improve grip and reduce spills."
 productType = "cup"
 staticFiles = ["cup-support2.stl", "FlexStick.stl", "Lock.stl"]
 variablePattern = "h{h}-t{t}.stl"
-previewImages = ["/preview-images/PE-cup-bed.png"]
+previewImages = ["/preview-images/PE-Cup-11767619223.png", "/preview-images/PE-cup-bed.png", "/preview-images/PE-cup.mp4"]
 prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
 
 [[device]]
@@ -49,7 +49,7 @@ productType = "button"
 staticFiles = ["Pin.stl"]
 variablePattern = "h{h}-w{w}-{part}.stl"
 variableParts = ["sa", "sb", "hook"]
-previewImages = ["/preview-images/PE-button-bed.png"]
+previewImages = ["/preview-images/PE-Button-aid-11767619208.png", "/preview-images/PE-Button-aid-21767619212.png", "/preview-images/PE-Button-aid-31767619220.png", "/preview-images/PE-button-bed.png", "/preview-images/PE-Button-aid.mp4"]
 prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
 sampleDims = { width = 67, height = 160, depth = 20, thickness = 22 }
 # sizeTable: list of available heights (h) and corresponding widths/thickness for narrow/med/wide variants
@@ -74,5 +74,5 @@ previewImagePath = "/preview-images/bidet.png"
 description = "Portable bidet attachment to restore autonomy and privacy in personal hygiene."
 productType = "bidet"
 staticFiles = ["bidet.stl"]
-previewImages = ["/preview-images/PE-Bidet-bed.png"]
+previewImages = ["/preview-images/PE-Bidet-11767619203.png", "/preview-images/PE-bidet-21767619199.png", "/preview-images/PE-bidet-31767619216.png", "/preview-images/PE-Bidet-bed.png", "/preview-images/PE-bidet-2.mp4"]
 prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
