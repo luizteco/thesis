@@ -25,6 +25,7 @@ export type DeviceConfig = {
   handleYesParts?: string[];
   handleNoParts?: string[];
   includeInstructions?: boolean;
+  previewImages?: string[];
 };
 
 export function Device() {
@@ -137,13 +138,77 @@ export function Device() {
     );
   }
 
-  const printedImages = (() => {
+  const printedImages = device.previewImages || (() => {
     if (device.id === "bidet") return ["/preview-images/bidet.png"];
     if (device.id === "button") return ["/preview-images/button.png"];
     if (device.id === "cup") return ["/preview-images/cup.png"];
     if (device.id === "cutlery") return ["/preview-images/cutlery.png"];
     return [device.previewImagePath];
   })();
+
+  const getPrintingMaterials = () => {
+    switch (device.id) {
+      case "cutlery":
+        return (
+          <>
+            <p><strong>Assembly:</strong> The cutlery grip comprises a body and interchangeable handle. Before printing, adapt the thickness (T parameter) to match the user's hand and strength.</p>
+            <p><strong>Supports:</strong> Print with supports under the curved grip surfaces. Use tree supports to minimize contact marks on the grip surface.</p>
+            <p><strong>Filament:</strong> Food-safe PLA or PETG. For food contact, use virgin food-safe material and ensure a clean nozzle to prevent contamination.</p>
+            <p><strong>Layer height:</strong> 0.2 mm for smooth grip; 0.16 mm for better surface finish on the grip surfaces.</p>
+            <p><strong>Wall/perimeters:</strong> 4–5 walls for durability; infill 20–30% gyroid or grid for strength without weight.</p>
+            <p><strong>Bed adhesion:</strong> Use brim for adhesion; IPA clean bed ensures best surface quality for the grip.</p>
+            <p><strong>Orientation:</strong> Grip surfaces upward; handles flat to minimize supports and ensure flat mating surfaces.</p>
+          </>
+        );
+      case "cup":
+        return (
+          <>
+            <p><strong>Assembly:</strong> The cup stabilizer comprises the main support sleeve, FlexStick positioning element, and Lock clip. Assemble in order: FlexStick first into the main support, then the Lock clip secures the assembly.</p>
+            <p><strong>Supports:</strong> Minimal supports needed; the FlexStick is thin and may require light supports internally.</p>
+            <p><strong>Filament:</strong> PLA or PETG recommended. TPU or flexible filament optional for the FlexStick for better grip.</p>
+            <p><strong>Layer height:</strong> 0.2 mm standard; 0.16 mm for the Lock clip to ensure tight fit.</p>
+            <p><strong>Wall/perimeters:</strong> 3–4 walls; infill 20% gyroid for lightweight design while maintaining rigidity.</p>
+            <p><strong>Bed adhesion:</strong> Use brim for the larger support piece; keep bed clean for best adhesion.</p>
+            <p><strong>Orientation:</strong> Support sleeve upright, walls parallel to Z-axis; Lock clip standing flat for precise dimension.</p>
+          </>
+        );
+      case "button":
+        return (
+          <>
+            <p><strong>Assembly:</strong> The Button Aid comprises two shaft parts (sa and sb) joined by a Pin.stl post. Assembly: Insert the Pin into the shaft parts to form the completed hook tool.</p>
+            <p><strong>Supports:</strong> The hook end may require light supports if overhangs exceed 45°; pin bore area needs minimal support.</p>
+            <p><strong>Filament:</strong> PLA recommended for rigidity; PETG for added durability and flexibility at the hook.</p>
+            <p><strong>Layer height:</strong> 0.2 mm standard; 0.16 mm for the pin bore to ensure tight assembly fit.</p>
+            <p><strong>Wall/perimeters:</strong> 4–5 walls for strength; infill 20–30% gyroid or grid to prevent deformation under pull force.</p>
+            <p><strong>Bed adhesion:</strong> Use brim for all parts, especially the thin hook end; clean bed (IPA) for best adhesion.</p>
+            <p><strong>Orientation:</strong> Shafts standing upright, hook angled for minimal supports; pin bore bore horizontal for best fit tolerances.</p>
+          </>
+        );
+      case "bidet":
+        return (
+          <>
+            <p><strong>Assembly:</strong> The bidet is a single-piece design ready to use after post-processing (smoothing, sealing).</p>
+            <p><strong>Supports:</strong> Support the inlet valve area and water passages; use soluble supports if available for easier removal.</p>
+            <p><strong>Filament:</strong> PETG or ABS recommended for water resistance and durability. Ensure material is FDA food-safe or suitable for water contact.</p>
+            <p><strong>Layer height:</strong> 0.2 mm standard; 0.16 mm for internal passages to ensure water tightness.</p>
+            <p><strong>Wall/perimeters:</strong> 5–6 walls for water-tight integrity; infill 30–40% gyroid to prevent warping and ensure structural strength.</p>
+            <p><strong>Bed adhesion:</strong> Use brim for the entire base; this is a large part requiring solid adhesion.</p>
+            <p><strong>Orientation:</strong> Inlet up, outlet down to minimize supports in critical water passages; post-process by sealing internal surfaces with food-safe epoxy or PET coating to ensure water tightness.</p>
+          </>
+        );
+      default:
+        return (
+          <>
+            <p><strong>Supports:</strong> Enable supports only where touching the build plate unless your slicer reports overhangs beyond 60°.</p>
+            <p><strong>Filament:</strong> PLA or PETG recommended. For food contact, use food-safe PLA and a clean nozzle.</p>
+            <p><strong>Layer height:</strong> 0.2 mm standard; 0.16 mm for smoother grip surfaces.</p>
+            <p><strong>Wall/perimeters:</strong> 3–4 walls; infill 20–30% gyroid or grid.</p>
+            <p><strong>Bed adhesion:</strong> Use a brim for tall parts; keep bed clean (IPA) for best adhesion.</p>
+            <p><strong>Orientation:</strong> Place grip surfaces upward to minimize supports; keep mating faces flat on the bed.</p>
+          </>
+        );
+    }
+  };
 
   const openViewer = (index: number) => {
     setViewerIndex(index);
@@ -233,12 +298,7 @@ export function Device() {
                     <span className="text-sm text-gray-500">(scrollable)</span>
                   </button>
                   <div className="max-h-48 overflow-y-auto px-4 pb-4 space-y-2 text-gray-700 text-sm">
-                    <p><strong>Supports:</strong> Enable supports only where touching the build plate unless your slicer reports overhangs beyond 60°.</p>
-                    <p><strong>Filament:</strong> PLA or PETG recommended. For food contact, use food-safe PLA and a clean nozzle.</p>
-                    <p><strong>Layer height:</strong> 0.2 mm standard; 0.16 mm for smoother grip surfaces.</p>
-                    <p><strong>Wall/perimeters:</strong> 3–4 walls; infill 20–30% gyroid or grid.</p>
-                    <p><strong>Bed adhesion:</strong> Use a brim for tall parts; keep bed clean (IPA) for best adhesion.</p>
-                    <p><strong>Orientation:</strong> Place grip surfaces upward to minimize supports; keep mating faces flat on the bed.</p>
+                    {getPrintingMaterials()}
                   </div>
                 </div>
               </div>

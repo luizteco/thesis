@@ -9,7 +9,9 @@ variablePattern = "h{h}-{part}.stl"
 handlePattern = "h{h}-t{t}-handle.stl"
 handleYesParts = ["body", "handle"]
 handleNoParts = ["body", "top"]
+staticFiles = ["spring.stl"]
 prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
+previewImages = ["/preview-images/PE-Cutlery-1.HEIC", "/preview-images/PE-Cutlery-2.HEIC", "/preview-images/PE-cutlery-bed.png", "/preview-images/PE-Cutlery.MOV"]
 sampleDims = { height = 197, thickness = 28 }
 # sizeTable for cutlery (HL -> widths narrow/med/wide and thickness t)
 sizeTable = [
@@ -32,9 +34,9 @@ previewStlPath = "/preview-models/cup-display.stl"
 previewImagePath = "/preview-images/cup.png"
 description = "Stabilizing sleeve for cups to improve grip and reduce spills."
 productType = "cup"
-staticFiles = ["cup-support.stl", "FlexStick.stl", "Lock.stl"]
+staticFiles = ["cup-support2.stl", "FlexStick.stl", "Lock.stl"]
 variablePattern = "h{h}-t{t}.stl"
-# Cloudflare R2 bucket base URL (points to 'downloads' folder)
+previewImages = ["/preview-images/PE-Cup-1.HEIC", "/preview-images/PE-cup-bed.png", "/preview-images/PE-cup.mov"]
 prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
 
 [[device]]
@@ -47,6 +49,7 @@ productType = "button"
 staticFiles = ["Pin.stl"]
 variablePattern = "h{h}-w{w}-{part}.stl"
 variableParts = ["sa", "sb", "hook"]
+previewImages = ["/preview-images/PE-Button-aid-1.HEIC", "/preview-images/PE-Button-aid-2.HEIC", "/preview-images/PE-Button-aid-3.HEIC", "/preview-images/PE-Button-aid.mov", "/preview-images/PE-button-bed.png"]
 prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
 sampleDims = { width = 67, height = 160, depth = 20, thickness = 22 }
 # sizeTable: list of available heights (h) and corresponding widths/thickness for narrow/med/wide variants
@@ -71,4 +74,5 @@ previewImagePath = "/preview-images/bidet.png"
 description = "Portable bidet attachment to restore autonomy and privacy in personal hygiene."
 productType = "bidet"
 staticFiles = ["bidet.stl"]
+previewImages = ["/preview-images/PE-Bidet-1.HEIC", "/preview-images/PE-bidet-2.HEIC", "/preview-images/PE-bidet-2.mov", "/preview-images/PE-bidet-3.HEIC", "/preview-images/PE-Bidet-bed.png"]
 prefixUrl = "https://pub-5028263d95314adf96c555f4bbb022f0.r2.dev"
