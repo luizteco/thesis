@@ -50,7 +50,7 @@ function Navigation() {
 
   const mainNavLinks = [
     { path: "/", label: t("nav.home") },
-    { path: "/devices", label: "Products" },
+    { path: "/devices", label: t("nav.products") },
     { path: "/printing-services", label: t("nav.printingServices") },
     { path: "/request-product", label: t("nav.requestProduct") },
   ];
@@ -86,12 +86,12 @@ function Navigation() {
           {/* Desktop Resources Dropdown */}
           <div className="relative group">
             <button className="text-sm font-semibold text-purple-500 px-3 py-1 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors flex items-center gap-1">
-              Resources
+              {t("nav.resources")}
               <span className="text-xs">▼</span>
             </button>
             <div className="absolute left-0 mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
               <Link to="/resources" className="block px-4 py-3 text-sm font-semibold text-purple-500 hover:bg-purple-50 border-b border-gray-100">
-                All Resources
+                {t("nav.allResources")}
               </Link>
               {resourcesSubLinks.map((link) => (
                 <Link
@@ -152,7 +152,7 @@ function Navigation() {
               onClick={() => setResourcesDropdownOpen(!resourcesDropdownOpen)}
               className="w-full text-left px-3 py-2 rounded-lg font-semibold text-sm text-purple-500 hover:bg-purple-50 flex items-center justify-between"
             >
-              Resources
+              {t("nav.resources")}
               <span className={`text-xs transition-transform ${resourcesDropdownOpen ? "rotate-180" : ""}`}>▼</span>
             </button>
             {resourcesDropdownOpen && (
@@ -162,7 +162,7 @@ function Navigation() {
                   className="block px-3 py-2 rounded-lg font-semibold text-sm text-purple-600 hover:bg-purple-50"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  All Resources
+                  {t("nav.allResources")}
                 </Link>
                 {resourcesSubLinks.map((link) => (
                   <Link
