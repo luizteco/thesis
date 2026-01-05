@@ -115,7 +115,45 @@ async function findClosestFile(
   return null;
 }
 
-// Try using a sizeTable: find nearest h rows and substitute their med width/thickness
+// Helper to find closest width from available options
+function findClosestWidth(widths: { narrow?: number; med?: number; wide?: number } | undefined, requestedWidth: number): number {
+  if (!widths) return requestedWidth;
+  const availableWidths = Object.values(widths).filter((w) => w !== undefined) as number[];
+  if (availableWidths.length === 0) return requestedWidth;
+  
+  // Find width closest to requested width
+  let closest = availableWidths[0];
+  let closestDist = Math.abs(closest - requestedWidth);
+  for (const w of availableWidths) {
+    const dist = Math.abs(w - requestedWidth);
+    if (dist < closestDist) {
+      closest = w;
+      closestDist = dist;
+    }
+  }
+  return closest;
+}
+
+// Helper to find closest thickness from available options
+function findClosestThickness(thickness: { narrow?: number; med?: number; wide?: number } | undefined, requestedThickness: number): number {
+  if (!thickness) return requestedThickness;
+  const availableThickness = Object.values(thickness).filter((t) => t !== undefined) as number[];
+  if (availableThickness.length === 0) return requestedThickness;
+  
+  // Find thickness closest to requested thickness
+  let closest = availableThickness[0];
+  let closestDist = Math.abs(closest - requestedThickness);
+  for (const t of availableThickness) {
+    const dist = Math.abs(t - requestedThickness);
+    if (dist < closestDist) {
+      closest = t;
+      closestDist = dist;
+    }
+  }
+  return closest;
+}
+
+// Try using a sizeTable: find nearest h rows and substitute their closest width/thickness
 async function tryNearestFromSizeTable(
   prefix: string,
   objectName: string,
@@ -130,11 +168,15 @@ async function tryNearestFromSizeTable(
   const rows = [...sizeTable].sort((a, b) => Math.abs((a.h ?? 0) - (dims.height ?? 0)) - Math.abs((b.h ?? 0) - (dims.height ?? 0)));
 
   for (const r of rows) {
+    // Find the closest width and thickness available for this height
+    const closestWidth = findClosestWidth(r.widths, dims.width ?? 0);
+    const closestThickness = findClosestThickness(r.thickness, dims.thickness ?? 0);
+    
     const candidateDims = {
       ...dims,
       height: r.h,
-      width: r.widths?.med ?? dims.width,
-      thickness: r.thickness?.med ?? dims.thickness,
+      width: closestWidth,
+      thickness: closestThickness,
     };
 
     const filename = formatFromPattern(pattern, objectName, candidateDims, { part });
@@ -192,11 +234,13 @@ async function assembleUrls(objectName: ObjectName, dimensions: Dimensions, conf
         }
 
         // No verified file found. As a last resort, push a guessed substitution (nearest row) and note it
+        const closestWidth = findClosestWidth(nearest.widths, dimensions.width ?? 0);
+        const closestThickness = findClosestThickness(nearest.thickness, dimensions.thickness ?? 0);
         const candidateDims = {
           ...dimensions,
           height: nearest.h,
-          width: nearest.widths?.med ?? dimensions.width,
-          thickness: nearest.thickness?.med ?? dimensions.thickness,
+          width: closestWidth,
+          thickness: closestThickness,
         };
         const filename = formatFromPattern(config.variablePattern, objectName, candidateDims, { part });
         const url = joinPath(prefix, objectName, filename);
@@ -256,11 +300,13 @@ async function assembleUrls(objectName: ObjectName, dimensions: Dimensions, conf
           else {
             // If we have a nearest row, push a guessed substitution (record note) as last resort
             if (nearest && nearest.h !== dimensions.height) {
+              const closestWidth = findClosestWidth(nearest.widths, dimensions.width ?? 0);
+              const closestThickness = findClosestThickness(nearest.thickness, dimensions.thickness ?? 0);
               const candidateDims = {
                 ...dimensions,
                 height: nearest.h,
-                width: nearest.widths?.med ?? dimensions.width,
-                thickness: nearest.thickness?.med ?? dimensions.thickness,
+                width: closestWidth,
+                thickness: closestThickness,
               };
               const guessed = joinPath(prefix, objectName, formatFromPattern(config.variablePattern, objectName, candidateDims));
               const note = `Guessed substitution: requested h=${dimensions.height} -> guessed h=${nearest.h} (w=${candidateDims.width}, t=${candidateDims.thickness})`;
@@ -282,11 +328,13 @@ async function assembleUrls(objectName: ObjectName, dimensions: Dimensions, conf
       // If sizeTable exists and requested height isn't in it, substitute nearest row (auto med) for each part
       const nearestPart = config.sizeTable ? findNearestRow(config.sizeTable, dimensions.height ?? 0) : null;
       if (nearestPart && nearestPart.h !== dimensions.height) {
+        const closestWidth = findClosestWidth(nearestPart.widths, dimensions.width ?? 0);
+        const closestThickness = findClosestThickness(nearestPart.thickness, dimensions.thickness ?? 0);
         const candidateDims = {
           ...dimensions,
           height: nearestPart.h,
-          width: nearestPart.widths?.med ?? dimensions.width,
-          thickness: nearestPart.thickness?.med ?? dimensions.thickness,
+          width: closestWidth,
+          thickness: closestThickness,
         };
         let substitutedFilename: string;
         if (part === "handle" && config.handlePattern) {
