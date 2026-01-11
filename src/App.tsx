@@ -26,6 +26,7 @@ function Navigation() {
   const isHome = location.pathname === "/";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
+  const [resourcesDesktopOpen, setResourcesDesktopOpen] = useState(false);
 
   const getLinkClassName = (path: string) => {
     const isActive = location.pathname === path;
@@ -83,14 +84,23 @@ function Navigation() {
             )
           ))}
 
-          {/* Desktop Resources Dropdown */}
-          <div className="relative group">
-            <button className="text-sm font-semibold text-purple-500 px-3 py-1 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors flex items-center gap-1">
+          {/* Desktop Resources Dropdown (hover + click for touch devices) */}
+          <div className="relative group" onMouseLeave={() => setResourcesDesktopOpen(false)}>
+            <button
+              className="text-sm font-semibold text-purple-500 px-3 py-1 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors flex items-center gap-1"
+              onClick={() => setResourcesDesktopOpen((v) => !v)}
+            >
               {t("nav.resources")}
               <span className="text-xs">▼</span>
             </button>
-            <div className="absolute left-0 mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-              <Link to="/resources" className="block px-4 py-3 text-sm font-semibold text-purple-500 hover:bg-purple-50 border-b border-gray-100">
+            <div
+              className={`absolute left-0 mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transition-all ${resourcesDesktopOpen ? "opacity-100 visible" : "opacity-0 invisible"} group-hover:opacity-100 group-hover:visible`}
+            >
+              <Link
+                to="/resources"
+                className="block px-4 py-3 text-sm font-semibold text-purple-500 hover:bg-purple-50 border-b border-gray-100"
+                onClick={() => setResourcesDesktopOpen(false)}
+              >
                 {t("nav.allResources")}
               </Link>
               {resourcesSubLinks.map((link) => (
@@ -98,6 +108,7 @@ function Navigation() {
                   key={link.path}
                   to={link.path}
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700"
+                  onClick={() => setResourcesDesktopOpen(false)}
                 >
                   {link.label}
                 </Link>
@@ -199,6 +210,14 @@ function App() {
         <Route path="/printing-services" element={<PrintingServices />} />
         <Route path="/request-product" element={<RequestProduct />} />
       </Routes>
+      {/* Site-wide fine print footer */}
+      <footer className="mt-8 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <p className="text-[11px] leading-snug text-gray-500 text-center">
+            The resulting designs were shared openly under a Creative Commons license to promote accessibility, reuse, and non-commercial distribution, aligning with the project’s goal of reducing barriers to assistive technology.
+          </p>
+        </div>
+      </footer>
     </BrowserRouter>
   );
 }
